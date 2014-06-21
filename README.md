@@ -1,4 +1,15 @@
-BlackFilmHistory
-================
+SCKLS Parent Theme
+==================
 
-Omeka theme developed for Indiana University's Regeneration Black Film History conference.
+Parent Omeka theme developed for South Central Kansas Library System (SCKLS), created by Interactive Mechanics.
+
+
+Customization Features:
+  *  Title
+  *  Subtitle
+  *  About this site
+  *  Header image
+  *  Primary site color
+  *  Toggle "featured" content
+  *  Footer logos
+  *  Custom Google search
