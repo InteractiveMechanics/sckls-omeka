@@ -1,0 +1,18 @@
+// Partial: Layout
+
+html,
+body {
+	min-height: 100%;
+}
+
+.content {
+    margin-top: 40px;
+
+    @media #{$screen-xs} {
+        margin-top: 0;
+    }
+
+    #home & {
+        margin-top: 0;
+    }
+}

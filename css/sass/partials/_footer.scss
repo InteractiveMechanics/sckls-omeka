@@ -1,0 +1,41 @@
+// Partials: Footer
+
+footer {
+	border-top: 1px solid #EEE;
+	padding: 40px 0;
+    margin-top: 60px;
+	font-size: 0.75em;
+	color: $iu-black;
+	position: relative;
+    text-align: center;
+
+    img {
+        width: 305px;
+        background-size: 100%;
+        margin-bottom: 20px;
+        transition: 0.5s opacity;
+
+        &:hover {
+            opacity: 0.75;
+            text-decoration: none;
+        }
+
+        @media #{$screen-xs} {
+            width: 100%;
+        }
+    }
+	p {
+		margin: 0;
+        text-align: left;
+        
+        a {
+            font-weight: 700;
+            color: $iu-black;
+
+            &:hover {
+                color: $iu-black;
+                text-decoration: underline;
+            }
+        }
+	}
+}

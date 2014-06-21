@@ -1,0 +1,60 @@
+.sidebar {
+    margin-bottom: 20px;
+
+    ul.nav {
+        > li {
+            border-bottom: 1px solid $iu-beige;
+            padding: 10px 0;
+            font-size: 14px;
+            color: lighten($iu-black, 15%);
+
+            &:hover {
+                cursor: pointer;
+                color: $iu-black;
+            }
+            &.expanded {
+                color: $iu-black;
+                font-weight: 700;
+
+                > ul {
+                    display: block;
+                    padding: 10px 0 10px 20px;
+                    list-style: none;
+                }
+            }
+            &.active {
+                
+            }
+            
+            > ul {
+                display: none;
+                
+                > li {
+                    margin-bottom: 8px;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &.active {
+                        a {
+                            color: $iu-red;
+                            font-weight: 700;
+                        }
+                    }
+
+                    a {
+                        font-size: 12px;
+                        color: $iu-black;
+                        font-weight: 400;
+                        display: block;
+
+                        &:hover {
+                            color: $iu-red;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

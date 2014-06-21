@@ -1,0 +1,15 @@
+// Media Queries
+$screen-xs			 : "(max-width: 767px)";
+$screen-sm			 : "(min-width: 768px) and (max-width: 991px)";
+$screen-md			 : "(min-width: 992px) and (max-width: 1199px)";
+$screen-lg			 : "(min-width: 1200px)";
+
+// Fonts
+$primary-font-face 	 : 'proxima-nova', 'Helvetica Neue', sans-serif;
+$secondary-font-face : 'minion-pro', 'Georgia', serif;
+
+// Colors
+$iu-black            : #17151b;
+$iu-beige            : #dedcd3;
+$iu-darkbeige        : #918d7b;
+$iu-red              : #ed1c24;
