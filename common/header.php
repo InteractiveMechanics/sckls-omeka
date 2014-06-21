@@ -27,13 +27,9 @@
     <!-- Scripts -->
     <?php 
 	    queue_js_url('http://code.jquery.com/jquery-1.11.0.min.js');
-        queue_js_file('lib/jquery.tinycarousel.min');
         queue_js_file('lib/bootstrap.min');
 	    queue_js_file('app');
 	    echo head_js(); ?>
-	    
-	<script type="text/javascript" src="//use.typekit.net/tfe1hdv.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
 <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
