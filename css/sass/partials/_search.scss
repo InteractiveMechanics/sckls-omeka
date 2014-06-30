@@ -1,0 +1,87 @@
+// Partials: Search
+
+#search-overlay {
+    background: white;
+    background: rgba(255,255,255,0.9);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 999;
+    padding-top: 40px;
+
+    .close {
+        font-size: 4rem;
+        font-weight: 300;
+    }
+    .glyphicon-search {
+        background: none;
+        font-size: 2.7rem;
+        color: $sckls-darkbeige;
+        border: none;
+        position: absolute;
+        top: 140px;
+    }
+}
+
+#search-overlay-button {
+     > span {
+         margin-right: 6px;
+     }
+}
+
+#search-omeka-container {
+    border-bottom: 2px solid $sckls-darkbeige;
+    margin-bottom: 20px;
+    
+    input[type="text"] {
+        box-shadow: none;
+        border: none;
+        background: none;
+        font-size: 7.2rem;
+        font-weight: 300;
+        color: $sckls-darkbeige;
+        height: 108px;
+        padding: 0 0 0 50px;
+    }
+}
+
+#search-library-container {
+    form.gsc-search-box {
+        margin: 0;
+    }
+    table.gsc-search-box {
+        margin-bottom: 0;
+    }
+    td.gsc-input {
+        padding-right: 0;
+    }
+    div.gsc-input-box {
+        border: none;
+        border-bottom: 2px solid $sckls-darkbeige;
+        margin-bottom: 20px;
+        background: none;
+        height: 110px;
+        box-shadow: none;
+
+        input.gsc-input {
+            box-shadow: none;
+            border: none;
+            background: none !important;
+            font-size: 7.2rem;
+            font-weight: 300;
+            color: $sckls-darkbeige;
+            height: 116px !important;
+            padding-left: 50px !important;
+        }
+        .gsib_a {
+            padding: 0;
+        }
+        .gsib_b {
+            display: none;
+        }
+    }
+    td.gsc-search-button {
+        display: none;
+    }
+}

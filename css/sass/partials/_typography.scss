@@ -8,3 +8,15 @@ html, body {
 * {
     font-family: $primary-font-face;
 }
+h1, h2, h3 {
+    font-family: $secondary-font-face;
+
+    a {
+        font-family: $secondary-font-face;
+    }
+}
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}

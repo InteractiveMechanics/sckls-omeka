@@ -1,3 +1,52 @@
 $(document).ready(function(){
+    $('#search-overlay-button').on('click', function(){
+        $('#search-overlay').fadeToggle(400);
+    });
+    $('input[name="search-type"]').on('click', function(){
+        var type = $(this).attr('id');
+        if (type === 'search-library'){
+            $('#search-library-container').removeClass('hidden');
+            $('#search-omeka-container').addClass('hidden');
+            $('.gsc-input').attr('placeholder', 'Search the library system');
+        } else if (type === 'search-omeka'){
+            $('#search-library-container').addClass('hidden');
+            $('#search-omeka-container').removeClass('hidden');
+        }
+    });
+    $('#search-overlay').on('click', '.close', function(){
+        $('#search-overlay').fadeToggle(400); 
+    });
+    $('input.gsc-input').attr('placeholder', 'Search the library system');
 
+    $('.items-list').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        touchMove: true,
+        slidesToScroll: 1,
+        arrows: true,
+        responsive: [
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }]
+    });
 });

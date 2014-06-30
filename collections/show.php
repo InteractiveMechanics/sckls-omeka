@@ -1,56 +1,49 @@
 <?php
-    $collection = get_current_record('Collections', false);
-    $collectionId = get_current_record('Collections',false)->id;
-    $collectionTitle = strip_formatting(metadata('collection', array('Dublin Core', 'Title')));
-
-    if ($collectionTitle == '') {
-        $collectionTitle = __('[Untitled]');
-    }
+$collectionTitle = strip_formatting(metadata('collection', array('Dublin Core', 'Title')));
+if ($collectionTitle == '') {
+    $collectionTitle = __('[Untitled]');
+}
 ?>
 
 <?php echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show')); ?>
 
 <div class="container">
-    <h1><?php echo $collectionTitle; ?></h1>
-    <div class="row">
-        <div class="col-sm-3">
-            <?php echo common('nav-collection'); ?>
-        </div>
-        <div class="col-sm-9">
-            <?php
-                $collections = get_records('collection', array('sort_field'=>'id'), 99);
-                set_loop_records('collections', $collections);
-                if (has_loop_records('collections')){
-                    foreach (loop('collections') as $collection){
-                        $thisCollectionTitle = metadata('collection', array('Dublin Core', 'Title'));
-                        $items = get_records('Item', array('collection'=>$collection->id), 99);
-                        set_loop_records('items', $items);
-                        if (($collectionTitle === 'Conference' && $thisCollectionTitle !== 'Workshop') || 
-                            ($collectionTitle === 'Workshop' && $thisCollectionTitle === 'Workshop')){
-                            if (has_loop_records('items')){
-                                echo '<h3>' . metadata('collection', array('Dublin Core', 'Title')) . '</h3>';
-                                echo '<div class="row">';
-                                foreach (loop('items') as $item){
-                                    echo '<div class="col-sm-6 col-md-4">';
-                                    echo '  <div class="item">';
-                                    echo '    <a href="' . record_url($item, null, true) . '">';
-                                    echo '      <div class="overlay"></div>';
-                                    $image = $item->Files;
-                                    if ($image) {
-                                        echo '<img src="' . file_display_url($image[0], 'original') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />';
-                                    }
-                                    echo '      <span class="title">' . metadata('item', array('Dublin Core', 'Title')) . '';
-                                    echo '    </a>';
-                                    echo '  </div>';
-                                    echo '</div>';
-                            	}
-                                echo '</div>';
-                            }
-                        }
-                    }
-                }
-            ?>
-        </div>
+    <div class="content-block">
+        <h1><?php echo $collectionTitle; ?></h1>
+        
+        <?php echo all_element_texts('collection'); ?>
+        
+        <div id="collection-items">
+            <h2><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h2>
+            <?php if (metadata('collection', 'total_items') > 0): ?>
+                <?php foreach (loop('items') as $item): ?>
+                <?php $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title'))); ?>
+                <div class="item hentry">
+                    <h3><?php echo link_to_item($itemTitle, array('class'=>'permalink')); ?></h3>
+        
+                    <?php if (metadata('item', 'has thumbnail')): ?>
+                    <div class="item-img">
+                        <?php echo link_to_item(item_image('square_thumbnail', array('alt' => $itemTitle))); ?>
+                    </div>
+                    <?php endif; ?>
+        
+                    <?php if ($text = metadata('item', array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
+                    <div class="item-description">
+                        <p><?php echo $text; ?></p>
+                    </div>
+                    <?php elseif ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+                    <div class="item-description">
+                        <?php echo $description; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p><?php echo __("There are currently no items within this collection."); ?></p>
+            <?php endif; ?>
+        </div><!-- end collection-items -->
+        
+        <?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
     </div>
 </div>
 

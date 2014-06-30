@@ -1,8 +1,5 @@
 <?php echo $this->form('search-form', $options['form_attributes']); ?>
-    <div class="form-group">
-        <span class="glyphicon glyphicon-search"></span>
-        <?php echo $this->formText('query', $filters['query'], array('class'=>'form-control', 'placeholder'=>'Search conference')); ?>
-    </div>
+    <?php echo $this->formText('query', $filters['query'], array('class'=>'form-control', 'placeholder'=>'Search the library')); ?>
     <?php if ($options['show_advanced']): ?>
         <fieldset id="advanced-form">
             <fieldset id="query-types">

@@ -21,25 +21,31 @@
     <!-- Stylesheets -->
     <?php 
     	queue_css_file('main');
-    	queue_css_file('lib/bootstrap.min'); 
+    	queue_css_file('lib/bootstrap.min');
+        queue_css_file('lib/slick');
    		echo head_css(); ?>
 
     <!-- Scripts -->
     <?php 
 	    queue_js_url('http://code.jquery.com/jquery-1.11.0.min.js');
         queue_js_file('lib/bootstrap.min');
+        queue_js_file('lib/slick.min');
 	    queue_js_file('app');
 	    echo head_js(); ?>
+
+    <style>
+        header {
+            background-image: url('<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Theme: Background'); ?>');
+        }
+        header > .overlay {
+            background: #<?php echo get_theme_option('Theme: Color'); ?>;
+        }
+    </style>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
 <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 <div class="wrapper">
-    <header>
-        <div class="container">
-            <div class="branding"><?php echo link_to_home_page('regeneration<span>Conference</span>'); ?></div>
-        </div>
-    </header>
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-inverse navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-button">
@@ -50,14 +56,20 @@
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-button">
-                <ul class="nav navbar-nav">
-                    <li><?php echo link_to_home_page('Home'); ?></li>
-                </ul>
                 <?php $nav = public_nav_main(); echo $nav->setUlClass('nav navbar-nav'); ?>
-                <form class="navbar-form navbar-right" role="search" action="<?php echo public_url(''); ?>search">
-                    <?php echo search_form(array('show_advanced' => false, 'form_attributes' => 'class')); ?>
-                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="search-overlay-button"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+                </ul>
             </div>
         </div>
     </nav>
+    <header>
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="branding">
+                <h1><?php echo link_to_home_page(); ?></h1>
+                <h4><?php echo get_theme_option('Theme: Subtitle'); ?></h4>
+            </div>
+        </div>
+    </header>
     <div class="content">

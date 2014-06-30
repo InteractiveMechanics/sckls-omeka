@@ -31,17 +31,19 @@
 ?>
 
 <div class="container">
-    <h1><?php echo metadata('simple_pages_page', 'title'); ?></h1>
-    <p>
-        <?php
-            $text = metadata('simple_pages_page', 'text', array('no_escape' => true));
-            if (metadata('simple_pages_page', 'use_tiny_mce')) {
-                echo $text;
-            } else {
-                echo eval('?>' . $text);
-            }
-        ?>
-    </p>
+    <div class="content-block">
+        <h1><?php echo metadata('simple_pages_page', 'title'); ?></h1>
+        <p>
+            <?php
+                $text = metadata('simple_pages_page', 'text', array('no_escape' => true));
+                if (metadata('simple_pages_page', 'use_tiny_mce')) {
+                    echo $text;
+                } else {
+                    echo eval('?>' . $text);
+                }
+            ?>
+        </p>
+    </div>
 </div>
 
 <?php 

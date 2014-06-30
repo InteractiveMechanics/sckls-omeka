@@ -1,8 +1,90 @@
 // Partial: Header
 
-header {
-	
-}
 nav.navbar {
-    
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    background: $sckls-gray;
+    min-height: 40px;
+
+    .navbar-nav {
+        > li {
+            > a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: $sckls-darkbeige;
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+
+            &.active,
+            &:hover {
+                > a {
+                    background: $sckls-gray;
+                    color: white;
+
+                    &:hover {
+                        background: $sckls-gray;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#search-overlay-button {
+    cursor: pointer;
+
+    &.active {
+        color: white;
+    }
+}
+
+header {
+    height: 200px;
+    position: relative;
+    background-size: cover;
+
+    #home & {
+        height: 400px;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+    }
+    .branding {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+
+        h1 {
+            margin: 30px 0 0;
+
+            a {
+                color: white;
+                font-size: 4rem;
+                text-shadow: 0 2px 2px rgba(0,0,0,0.75);
+                transition: 0.5s all;
+
+                &:hover {
+                    text-decoration: none;
+                    opacity: 0.5;
+                }
+            }
+        }
+        h4 {
+            opacity: 0.85;
+            font-size: 1.6rem;
+            font-weight: 400;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+            color: white;
+
+        }
+    }
 }

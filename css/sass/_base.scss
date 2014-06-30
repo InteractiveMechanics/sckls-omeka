@@ -5,11 +5,13 @@ $screen-md			 : "(min-width: 992px) and (max-width: 1199px)";
 $screen-lg			 : "(min-width: 1200px)";
 
 // Fonts
-$primary-font-face 	 : 'proxima-nova', 'Helvetica Neue', sans-serif;
-$secondary-font-face : 'minion-pro', 'Georgia', serif;
+$primary-font-face 	 : 'Open Sans', 'Helvetica Neue', sans-serif;
+$secondary-font-face : 'Gentium Basic', serif;
 
 // Colors
-$iu-black            : #17151b;
-$iu-beige            : #dedcd3;
-$iu-darkbeige        : #918d7b;
-$iu-red              : #ed1c24;
+$sckls-gray             : #404041;
+$sckls-black            : #231F20;
+$sckls-lightbeige       : #ECECE4;
+$sckls-beige            : #C6AB76;
+$sckls-darkbeige        : #A7A69B;
+$sckls-red              : #C86857 default;
