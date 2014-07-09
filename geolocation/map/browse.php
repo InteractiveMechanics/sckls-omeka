@@ -25,18 +25,13 @@
 
 <div class="container">
     <div class="content-block">
-        <h1><?php echo __('Browse Items on the Map');?> (<?php echo $totalItems; ?> <?php echo __('total');?>)</h1>
-        
-        <?php echo pagination_links(); ?>
-        
+        <h1>Browse on the map</h1>        
         <div class="row">
-            <div class="col-sm-8">
-                <?php echo $this->googleMap('map_browse', array('loadKml'=>true, 'list'=>'map-links'));?>
-            </div><!-- end map_block -->
-            <div class="col-sm-4">
-                <div id="map-links"><h2><?php echo __('Find An Item on the Map'); ?></h2></div><!-- Used by JavaScript -->
-            </div><!-- end link_block -->
-        </div><!-- end primary -->
+            <div class="col-sm-12">
+                <?php echo $this->googleMap('map_browse', array('loadKml'=>true, 'list'=>'list-view'));?>
+            </div>
+            <div id="list-view" class="hidden"></div>
+        </div>
     </div>
 </div>
 

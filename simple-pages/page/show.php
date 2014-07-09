@@ -31,7 +31,7 @@
 ?>
 
 <div class="container">
-    <div class="content-block">
+    <div class="content-block extra-padding">
         <h1><?php echo metadata('simple_pages_page', 'title'); ?></h1>
         <p>
             <?php

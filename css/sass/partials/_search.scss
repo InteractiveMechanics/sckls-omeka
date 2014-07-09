@@ -27,6 +27,7 @@
 #search-overlay-button {
      > span {
          margin-right: 6px;
+         font-size: 1.2rem;
      }
 }
 
@@ -83,5 +84,22 @@
     }
     td.gsc-search-button {
         display: none;
+    }
+}
+
+.gsc-orderby-container {
+    display: none;
+}
+.gsc-control-cse {
+    padding: 0 !important;
+    border: none !important;
+
+    * { font-family: 'Arial', sans-serif; line-height: 1.33; }
+
+    .gsc-result .gs-title {
+        overflow: visible;
+    }
+    .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top {
+        padding: 0;
     }
 }

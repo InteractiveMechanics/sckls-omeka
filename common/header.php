@@ -23,6 +23,7 @@
     	queue_css_file('main');
     	queue_css_file('lib/bootstrap.min');
         queue_css_file('lib/slick');
+        queue_css_file('lib/lightGallery');
    		echo head_css(); ?>
 
     <!-- Scripts -->
@@ -30,6 +31,7 @@
 	    queue_js_url('http://code.jquery.com/jquery-1.11.0.min.js');
         queue_js_file('lib/bootstrap.min');
         queue_js_file('lib/slick.min');
+        queue_js_file('lib/lightGallery.min');
 	    queue_js_file('app');
 	    echo head_js(); ?>
 
@@ -37,7 +39,10 @@
         header {
             background-image: url('<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Theme: Background'); ?>');
         }
-        header > .overlay {
+        header .overlay {
+            background: #<?php echo get_theme_option('Theme: Color'); ?>;
+        }
+        .content .overlay:hover {
             background: #<?php echo get_theme_option('Theme: Color'); ?>;
         }
     </style>
