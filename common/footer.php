@@ -40,7 +40,7 @@
             <div id="search-library-container" class="hidden">
                 <script>
                   (function() {
-                    var cx = '005878777926621422050:pgevqjpx2ge';
+                    var cx = '<?php echo $googleCode; ?>';
                     var gcse = document.createElement('script');
                     gcse.type = 'text/javascript';
                     gcse.async = true;

@@ -2,9 +2,10 @@
     <div class="content-block extra-padding">
         <h1><?php echo metadata('simple_pages_page', 'title'); ?></h1>
         <p>
+            <?php $googleCode = get_theme_option('Theme: Googlecode'); ?>
             <script>
               (function() {
-                var cx = '005878777926621422050:pgevqjpx2ge';
+                var cx = '<?php echo $googleCode; ?>';
                 var gcse = document.createElement('script');
                 gcse.type = 'text/javascript';
                 gcse.async = true;
