@@ -49,4 +49,8 @@ $(document).ready(function(){
             }
         }]
     });
+
+    $("#image-gallery").lightGallery({
+        mode:"fade"
+    }); 
 });

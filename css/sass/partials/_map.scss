@@ -1,0 +1,35 @@
+// Partials: Map Page
+
+#map_browse {
+    height: 450px;
+
+    .geolocation_balloon {
+        width: 300px !important;
+        font-size: 1.2em;
+        padding: 12px 10px;
+
+        .geolocation_balloon_title a {
+            font-family: $secondary-font-face;
+            font-weight: 400;
+            font-size: 2.1rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .geolocation_balloon_description {
+            font-family: $primary-font-face;
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+    }
+}
+
+#search_block {
+    clear: both;
+}
+
+#map-links {
+
+    a {
+        display:block;
+    }
+}

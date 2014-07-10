@@ -79,8 +79,10 @@ html, body {
       content: '\2014';
       margin: 0 8px; }
   html h6, body h6 {
-    font-size: 1.6rem;
-    font-weight: 700; }
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #c2c2a8; }
   html p, html span, body p, body span {
     font-family: "Gentium Basic", serif;
     font-size: 1.8rem;
@@ -325,6 +327,66 @@ footer {
     font-weight: 400;
     pointer-events: none; }
 
+.single-item h1 {
+  margin-bottom: 25px; }
+  .single-item h1 small {
+    font-size: 50%;
+    margin-left: 10px; }
+.single-item h6 {
+  margin: 0 0 3px; }
+.single-item p {
+  margin-bottom: 15px; }
+
+#image-gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  #image-gallery > li {
+    opacity: 1;
+    transition: all 0.5s;
+    cursor: pointer; }
+    #image-gallery > li:hover {
+      opacity: 0.75; }
+    #image-gallery > li.image-large {
+      width: 100%;
+      max-height: 350px;
+      margin-bottom: 20px;
+      overflow: hidden; }
+    #image-gallery > li.image-small {
+      width: 80px;
+      float: left;
+      margin-right: 20px;
+      height: 80px;
+      overflow: hidden;
+      background: #f1f2f2; }
+    #image-gallery > li img {
+      max-width: 100%;
+      vertical-align: middle; }
+
+.browse-items .browse-items-header {
+  padding: 15px;
+  font-weight: 700;
+  border-bottom: 2px solid #f1f2f2; }
+  .browse-items .browse-items-header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .browse-items .browse-items-header ul li a {
+      font-weight: 700; }
+.browse-items .item {
+  padding: 15px;
+  border-top: 1px solid #f1f2f2;
+  border-bottom: 1px solid #f1f2f2; }
+  .browse-items .item:hover {
+    background: #f1f2f2; }
+  .browse-items .item:last-of-type {
+    border-bottom: none; }
+  .browse-items .item .img {
+    width: 100%;
+    height: 70px;
+    background-size: cover;
+    background-position: center center; }
+
 .items-list {
   width: 100%; }
   .items-list .item a {
@@ -403,3 +465,26 @@ footer {
     left: -60px; }
   .items-list .slick-next {
     right: -60px; }
+
+#map_browse {
+  height: 450px; }
+  #map_browse .geolocation_balloon {
+    width: 300px !important;
+    font-size: 1.2em;
+    padding: 12px 10px; }
+    #map_browse .geolocation_balloon .geolocation_balloon_title a {
+      font-family: "Gentium Basic", serif;
+      font-weight: 400;
+      font-size: 2.1rem;
+      margin-bottom: 8px;
+      display: block; }
+    #map_browse .geolocation_balloon .geolocation_balloon_description {
+      font-family: "Open Sans", "Helvetica Neue", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300; }
+
+#search_block {
+  clear: both; }
+
+#map-links a {
+  display: block; }

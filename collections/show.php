@@ -10,39 +10,65 @@ if ($collectionTitle == '') {
 <div class="container">
     <div class="content-block">
         <h1><?php echo $collectionTitle; ?></h1>
+        <p><?php echo metadata('collection', array('Dublin Core', 'Description')); ?></p>
         
-        <?php echo all_element_texts('collection'); ?>
-        
-        <div id="collection-items">
-            <h2><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h2>
-            <?php if (metadata('collection', 'total_items') > 0): ?>
-                <?php foreach (loop('items') as $item): ?>
-                <?php $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title'))); ?>
-                <div class="item hentry">
-                    <h3><?php echo link_to_item($itemTitle, array('class'=>'permalink')); ?></h3>
-        
-                    <?php if (metadata('item', 'has thumbnail')): ?>
-                    <div class="item-img">
-                        <?php echo link_to_item(item_image('square_thumbnail', array('alt' => $itemTitle))); ?>
+        <?php if (metadata('collection', 'total_items') > 0): ?>
+        <div class="browse-items">
+            <?php
+                $sortLinks[__('Title')] = 'Dublin Core,Title';
+                $sortLinks[__('Creator')] = 'Dublin Core,Creator';
+                ?>
+            <div class="browse-items-header">
+                <div class="row">
+                    <div class="col-sm-2 col-sm-offset-2">
+                        Title
                     </div>
-                    <?php endif; ?>
-        
-                    <?php if ($text = metadata('item', array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
-                    <div class="item-description">
-                        <p><?php echo $text; ?></p>
+                    <div class="col-sm-2">
+                        Creator
                     </div>
-                    <?php elseif ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-                    <div class="item-description">
-                        <?php echo $description; ?>
+                    <div class="col-sm-2">
+                        Subject
                     </div>
-                    <?php endif; ?>
+                    <div class="col-sm-2">
+                        Description
+                    </div>
                 </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p><?php echo __("There are currently no items within this collection."); ?></p>
-            <?php endif; ?>
-        </div><!-- end collection-items -->
+            </div>
         
+            <?php foreach (loop('items') as $item): ?>
+            <div class="item">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <?php $image = $item->Files; ?>
+                        <?php if ($image) {
+                                echo link_to_item('<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>');
+                            } else {
+                                echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img"></div>');
+                            }
+                        ?>
+                    </div>
+                    <div class="col-sm-2">
+                        <?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?>
+                    </div>
+                    <div class="col-sm-2">
+                        <?php echo metadata('item', array('Dublin Core', 'Creator')); ?>
+                    </div>
+                    <div class="col-sm-2">
+                        <?php echo metadata('item', array('Dublin Core', 'Subject')); ?>
+                    </div>
+                    <div class="col-sm-4">
+                        <?php echo metadata('item', array('Dublin Core', 'Description'), array('snippet'=>150)); ?>
+                    </div>
+                
+                    <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php else: ?>
+            <div class="alert alert-warning">There are currently no items within this collection.</div>
+        <?php endif; ?>
+
         <?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
     </div>
 </div>

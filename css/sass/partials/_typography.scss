@@ -20,7 +20,6 @@ html, body {
         font-size: 4.2rem;
     }
     h5 {
-    
         &.header-label {
             text-align: center;
             font-weight: 900;
@@ -41,8 +40,10 @@ html, body {
         }
     }
     h6 {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         font-weight: 700;
+        text-transform: uppercase;
+        color: darken($sckls-lightbeige, 20%);
     }
     
     p, span {
