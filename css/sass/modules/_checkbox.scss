@@ -16,6 +16,10 @@
             cursor: pointer;
             background: url(../images/off.png) left 3px no-repeat;
             background-size: 20px 20px;
+
+            @media #{$screen-xs} {
+                display: block;
+            }
         }
         &.disabled + label {
             opacity: 0.4;

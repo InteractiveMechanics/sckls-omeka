@@ -23,6 +23,12 @@ body {
       cursor: pointer;
       background: url(../images/off.png) left 3px no-repeat;
       background-size: 20px 20px; }
+      @media (max-width: 767px) {
+        html input[type='radio'] + label,
+        html input[type='checkbox'] + label,
+        body input[type='radio'] + label,
+        body input[type='checkbox'] + label {
+          display: block; } }
     html input[type='radio'].disabled + label,
     html input[type='checkbox'].disabled + label,
     body input[type='radio'].disabled + label,
@@ -52,6 +58,12 @@ body {
       padding: 6px; }
     .content .content-block.extra-padding {
       padding: 20px 40px; }
+      @media (max-width: 767px) {
+        .content .content-block.extra-padding {
+          padding: 16px 20px; } }
+    @media (max-width: 767px) {
+      .content .content-block {
+        padding: 16px 20px; } }
 
 html, body {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
@@ -65,6 +77,15 @@ html, body {
       font-family: "Gentium Basic", serif; }
   html h1, body h1 {
     font-size: 4.2rem; }
+    @media (min-width: 768px) and (max-width: 991px) {
+      html h1, body h1 {
+        font-size: 3.6rem;
+        line-height: 3.8rem; } }
+    @media (max-width: 767px) {
+      html h1, body h1 {
+        font-size: 3.2rem;
+        line-height: 3.6rem;
+        margin-bottom: 15px; } }
   html h5.header-label, body h5.header-label {
     text-align: center;
     font-weight: 900;
@@ -78,6 +99,10 @@ html, body {
     html h5.header-label:before, html h5.header-label:after, body h5.header-label:before, body h5.header-label:after {
       content: '\2014';
       margin: 0 8px; }
+      @media (max-width: 767px) {
+        html h5.header-label:before, html h5.header-label:after, body h5.header-label:before, body h5.header-label:after {
+          margin: 0;
+          content: ''; } }
   html h6, body h6 {
     font-size: 1.3rem;
     font-weight: 700;
@@ -92,6 +117,9 @@ html, body {
       font-family: "Gentium Basic", serif;
       font-size: 1.8rem;
       font-weight: 700; }
+    @media (max-width: 767px) {
+      html p, html span, body p, body span {
+        line-height: 2.7rem; } }
   html a, body a {
     text-decoration: none !important; }
     html a:hover, body a:hover {
@@ -109,24 +137,40 @@ nav.navbar {
     color: #a7a69b;
     font-size: 1.2rem;
     font-weight: 700; }
+    nav.navbar .navbar-nav > li > a .glyphicon-search {
+      font-size: 1.2rem;
+      margin-right: 5px; }
   nav.navbar .navbar-nav > li.active > a, nav.navbar .navbar-nav > li:hover > a {
     background: #404041;
     color: white; }
     nav.navbar .navbar-nav > li.active > a:hover, nav.navbar .navbar-nav > li:hover > a:hover {
       background: #404041;
       color: white; }
+  nav.navbar .navbar-toggle {
+    height: 34px; }
+    nav.navbar .navbar-toggle .glyphicon-search {
+      font-size: 1.4rem !important;
+      color: white;
+      top: -1px;
+      left: 0; }
 
-#search-overlay-button {
+.search-overlay-button {
   cursor: pointer; }
-  #search-overlay-button.active {
+  .search-overlay-button.active {
     color: white; }
 
 header {
   height: 200px;
   position: relative;
   background-size: cover; }
+  @media (max-width: 767px) {
+    header {
+      height: 240px; } }
   #home header {
     height: 400px; }
+    @media (max-width: 767px) {
+      #home header {
+        height: 320px; } }
   header .overlay {
     position: absolute;
     top: 0;
@@ -178,6 +222,9 @@ footer {
       footer p > a:hover {
         color: #8f8e80;
         text-decoration: none; }
+  @media (max-width: 767px) {
+    footer .partners {
+      margin-top: 20px; } }
   footer .partners img {
     max-width: 100%;
     height: auto; }
@@ -201,6 +248,10 @@ footer {
     border: none;
     position: absolute;
     top: 140px; }
+    @media (max-width: 767px) {
+      #search-overlay .glyphicon-search {
+        font-size: 1.8rem;
+        top: 105px; } }
 
 #search-overlay-button > span {
   margin-right: 6px;
@@ -218,6 +269,11 @@ footer {
     color: #a7a69b;
     height: 108px;
     padding: 0 0 0 50px; }
+    @media (max-width: 767px) {
+      #search-omeka-container input[type="text"] {
+        padding-left: 30px;
+        font-size: 3rem;
+        height: 60px; } }
 
 #search-library-container form.gsc-search-box {
   margin: 0; }
@@ -232,6 +288,9 @@ footer {
   background: none;
   height: 110px;
   box-shadow: none; }
+  @media (max-width: 767px) {
+    #search-library-container div.gsc-input-box {
+      height: 62px; } }
   #search-library-container div.gsc-input-box input.gsc-input {
     box-shadow: none;
     border: none;
@@ -241,6 +300,11 @@ footer {
     color: #a7a69b;
     height: 116px !important;
     padding-left: 50px !important; }
+    @media (max-width: 767px) {
+      #search-library-container div.gsc-input-box input.gsc-input {
+        padding-left: 30px !important;
+        font-size: 3rem;
+        height: 62px !important; } }
   #search-library-container div.gsc-input-box .gsib_a {
     padding: 0; }
   #search-library-container div.gsc-input-box .gsib_b {
@@ -270,6 +334,12 @@ footer {
   position: relative; }
   .featured:hover .overlay {
     opacity: 0.5; }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .featured {
+      height: 250px; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .featured {
+      height: 250px; } }
   .featured .img {
     position: absolute;
     bottom: 0;
@@ -326,12 +396,20 @@ footer {
     line-height: 2.7rem;
     font-weight: 400;
     pointer-events: none; }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .featured .title {
+        font-size: 2.1rem;
+        line-height: 2.5rem; } }
 
 .single-item h1 {
   margin-bottom: 25px; }
   .single-item h1 small {
     font-size: 50%;
     margin-left: 10px; }
+    @media (max-width: 767px) {
+      .single-item h1 small {
+        margin: 10px 0 0;
+        display: block; } }
 .single-item h6 {
   margin: 0 0 3px; }
 .single-item p {
@@ -341,6 +419,11 @@ footer {
   list-style: none;
   margin: 0;
   padding: 0; }
+  @media (max-width: 767px) {
+    #image-gallery {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f1f2f2; } }
   #image-gallery > li {
     opacity: 1;
     transition: all 0.5s;
@@ -352,6 +435,9 @@ footer {
       max-height: 350px;
       margin-bottom: 20px;
       overflow: hidden; }
+      @media (min-width: 768px) and (max-width: 991px) {
+        #image-gallery > li.image-large {
+          margin-bottom: 10px; } }
     #image-gallery > li.image-small {
       width: 80px;
       float: left;
@@ -359,6 +445,19 @@ footer {
       height: 80px;
       overflow: hidden;
       background: #f1f2f2; }
+      @media (min-width: 992px) and (max-width: 1199px) {
+        #image-gallery > li.image-small {
+          width: 60px;
+          height: 60px; } }
+      @media (min-width: 768px) and (max-width: 991px) {
+        #image-gallery > li.image-small {
+          width: 50px;
+          height: 50px;
+          margin-right: 10px; } }
+      @media (max-width: 767px) {
+        #image-gallery > li.image-small {
+          width: 60px;
+          height: 60px; } }
     #image-gallery > li img {
       max-width: 100%;
       vertical-align: middle; }
@@ -367,6 +466,9 @@ footer {
   padding: 15px;
   font-weight: 700;
   border-bottom: 2px solid #f1f2f2; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .browse-items .browse-items-header {
+      padding: 15px 0; } }
   .browse-items .browse-items-header ul {
     list-style: none;
     margin: 0;
@@ -381,11 +483,18 @@ footer {
     background: #f1f2f2; }
   .browse-items .item:last-of-type {
     border-bottom: none; }
+  @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
+    .browse-items .item {
+      padding: 15px 0; } }
   .browse-items .item .img {
     width: 100%;
     height: 70px;
     background-size: cover;
     background-position: center center; }
+    @media (max-width: 767px) {
+      .browse-items .item .img {
+        height: 100px;
+        margin-bottom: 10px; } }
 
 .items-list {
   width: 100%; }
@@ -406,6 +515,9 @@ footer {
     @media (min-width: 768px) and (max-width: 991px) {
       .items-list .item a {
         height: 225px; } }
+    @media (max-width: 767px) {
+      .items-list .item a {
+        margin: 0; } }
     .items-list .item a .overlay {
       position: absolute;
       top: 0;

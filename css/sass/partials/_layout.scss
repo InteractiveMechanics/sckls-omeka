@@ -26,6 +26,14 @@ body {
         }
         &.extra-padding {
             padding: 20px 40px;
+
+            @media #{$screen-xs} {
+                padding: 16px 20px;
+            }
+        }
+
+        @media #{$screen-xs} {
+            padding: 16px 20px;
         }
     }
 }

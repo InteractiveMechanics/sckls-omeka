@@ -25,6 +25,9 @@
             @media #{$screen-sm} {
                 height: 225px;
             }
+            @media #{$screen-xs} {
+                margin: 0;
+            }
 
             .overlay {
                 position: absolute;

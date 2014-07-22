@@ -6,32 +6,27 @@ echo head(array(
 
 <div class="container">
     <div class="content-block">
-        <nav id="exhibit-pages">
-            <?php echo exhibit_builder_page_nav(); ?>
-        </nav>
-        
-        <h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></h1>
-        
-        <nav id="exhibit-child-pages">
-            <?php echo exhibit_builder_child_page_nav(); ?>
-        </nav>
-        
-        <?php exhibit_builder_render_exhibit_page(); ?>
-        
-        <div id="exhibit-page-navigation">
-            <?php if ($prevLink = exhibit_builder_link_to_previous_page()): ?>
-            <div id="exhibit-nav-prev">
-            <?php echo $prevLink; ?>
+        <h1><?php echo metadata('exhibit_page', 'title'); ?> <small><?php echo metadata('exhibit', 'title'); ?></small></h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <?php exhibit_builder_render_exhibit_page(); ?>
             </div>
+            <div class="col-sm-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <?php echo sckls_exhibit_builder_page_nav(); ?>
+                    <?php echo exhibit_builder_child_page_nav(); ?>
+                </ul>
+            </div>
+        </div>      
+        
+        <ul class="pager">
+            <hr>
+            <?php if ($prevLink = exhibit_builder_link_to_previous_page()): ?>
+                <li class="previous"><?php echo $prevLink; ?></li>
             <?php endif; ?>
             <?php if ($nextLink = exhibit_builder_link_to_next_page()): ?>
-            <div id="exhibit-nav-next">
-            <?php echo $nextLink; ?>
-            </div>
+                <li class="next"><?php echo $nextLink; ?></li>
             <?php endif; ?>
-            <div id="exhibit-nav-up">
-            <?php echo exhibit_builder_page_trail(); ?>
-            </div>
         </div>
     </div>
 </div>

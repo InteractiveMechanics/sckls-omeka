@@ -2,7 +2,7 @@
 <html lang="<?php echo get_html_lang(); ?>">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <?php if ( $description = option('description')): ?>
     	<meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
@@ -17,6 +17,20 @@
 
     <!-- Plugins -->
     <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="<?php echo img('icons/apple-touch-icon.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo img('icons/apple-touch-icon-57x57.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo img('icons/apple-touch-icon-114x114.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo img('icons/apple-touch-icon-72x72.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo img('icons/apple-touch-icon-144x144.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="60x60" href="<?php echo img('icons/apple-touch-icon-60x60.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo img('icons/apple-touch-icon-120x120.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo img('icons/apple-touch-icon-76x76.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php echo img('icons/apple-touch-icon-152x152.png'); ?>" />
+	<link rel="icon" type="image/png" href="<?php echo img('icons/64_favicon.png'); ?>" sizes="64x64" />
+	<link rel="icon" type="image/png" href="<?php echo img('icons/32_favicon.png'); ?>" sizes="32x32" />
+	<link rel="icon" type="image/png" href="<?php echo img('icons/favicon.png'); ?>" sizes="16x16" />
 
     <!-- Stylesheets -->
     <?php 
@@ -59,11 +73,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="search-overlay-button navbar-toggle"><span class="glyphicon glyphicon-search"></span></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-button">
                 <?php $nav = public_nav_main(); echo $nav->setUlClass('nav navbar-nav'); ?>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a id="search-overlay-button"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+                <ul class="nav navbar-nav navbar-right hidden-xs">
+                    <li><a class="search-overlay-button"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                 </ul>
             </div>
         </div>

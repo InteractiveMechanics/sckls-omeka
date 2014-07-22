@@ -3,31 +3,25 @@
 <div class="container">
     <div class="content-block">
         <h1><?php echo metadata('exhibit', 'title'); ?></h1>
-        <?php echo exhibit_builder_page_nav(); ?>
-        
-        <div id="primary">
-        <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
-        <div class="exhibit-description">
-            <?php echo $exhibitDescription; ?>
+        <div class="row">
+            <div class="col-sm-9">
+                <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
+                    <?php echo $exhibitDescription; ?>
+                <?php endif; ?>
+                <?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
+                    <h3><?php echo __('Credits'); ?></h3>
+                    <p><?php echo $exhibitCredits; ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="col-sm-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
+                    <?php foreach (loop('exhibit_page') as $exhibitPage): ?>
+                    <?php echo exhibit_builder_page_summary($exhibitPage); ?>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
-        <?php endif; ?>
-        
-        <?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
-        <div class="exhibit-credits">
-            <h3><?php echo __('Credits'); ?></h3>
-            <p><?php echo $exhibitCredits; ?></p>
-        </div>
-        <?php endif; ?>
-        </div>
-        
-        <nav id="exhibit-pages">
-            <ul>
-                <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
-                <?php foreach (loop('exhibit_page') as $exhibitPage): ?>
-                <?php echo exhibit_builder_page_summary($exhibitPage); ?>
-                <?php endforeach; ?>
-            </ul>
-        </nav>
     </div>
 </div>
 

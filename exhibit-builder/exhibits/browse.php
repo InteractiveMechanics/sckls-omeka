@@ -4,26 +4,29 @@
 ?>
 
 <div class="container">
-    <div class="content-block">
-        <?php if (count($exhibits) > 0): ?>
-                
+    <?php if (count($exhibits) > 0): ?>
         <?php $exhibitCount = 0; ?>
+    
         <?php foreach (loop('exhibit') as $exhibit): ?>
-            <?php $exhibitCount++; ?>
-            <div class="exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
+            <div class="content-block exhibit">
+                <?php $exhibitCount++; ?>
                 <h1><?php echo link_to_exhibit(); ?></h1>
+                <div class="items-list slider exhibit-slider">
+                    <?php print_r(sckls_exhibit_builder_get_images($exhibit)); ?>
+                </div>
                 <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
                     <hr>
-                    <p><?php echo $exhibitDescription; ?></p>
+                    <?php echo $exhibitDescription; ?>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
-        
         <?php echo pagination_links(); ?>
-        
-        <?php else: ?>
-        <p><?php echo __('There are no exhibits available yet.'); ?></p>
-        <?php endif; ?>
+    
+    <?php else: ?>
+        <div class="content-block">
+            <p><?php echo __('There are no exhibits available yet.'); ?></p>
+        </div>
+    <?php endif; ?>
     </div>
 </div>
 

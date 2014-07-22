@@ -15,6 +15,11 @@ nav.navbar {
                 color: $sckls-darkbeige;
                 font-size: 1.2rem;
                 font-weight: 700;
+
+                .glyphicon-search {
+                    font-size: 1.2rem;
+                    margin-right: 5px;
+                }
             }
 
             &.active,
@@ -31,9 +36,19 @@ nav.navbar {
             }
         }
     }
+    .navbar-toggle {
+        height: 34px;
+
+        .glyphicon-search {
+            font-size: 1.4rem !important;
+            color: white;
+            top: -1px;
+            left: 0;
+        }
+    }
 }
 
-#search-overlay-button {
+.search-overlay-button {
     cursor: pointer;
 
     &.active {
@@ -46,8 +61,16 @@ header {
     position: relative;
     background-size: cover;
 
+    @media #{$screen-xs} {
+        height: 240px; 
+    }
+
     #home & {
         height: 400px;
+
+        @media #{$screen-xs} {
+            height: 320px;
+        }
     }
 
     .overlay {

@@ -8,7 +8,7 @@
             <div class="col-sm-5">
                 <?php $images = $item->Files; $imagesCount = 1; ?>
                 <?php if ($images): ?>
-                <ul id="image-gallery">
+                <ul id="image-gallery" class="clearfix">
                     <?php foreach ($images as $image): ?>
                         <?php if ($imagesCount === 1): ?>
                             <li class="image-large" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">

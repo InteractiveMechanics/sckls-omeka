@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="content-block">
-        <h1>Browse on the map</h1>        
+        <h1>Browse the map</h1>        
         <div class="row">
             <div class="col-sm-12">
                 <?php echo $this->googleMap('map_browse', array('loadKml'=>true, 'list'=>'list-view'));?>

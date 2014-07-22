@@ -6,7 +6,7 @@
 <div class="container">
 
     <?php foreach (loop('collections') as $collection): ?>
-    <div class="content-block">        
+    <div class="content-block browse-page">        
         <h1><?php echo link_to_collection(); ?></h1>
         <?php 
             $items = get_records('Item', array('collection'=>$collection->id), 8);

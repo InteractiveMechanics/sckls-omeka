@@ -18,6 +18,16 @@ html, body {
     }
     h1 {
         font-size: 4.2rem;
+
+        @media #{$screen-sm} {
+            font-size: 3.6rem;
+            line-height: 3.8rem;
+        }
+        @media #{$screen-xs} {
+            font-size: 3.2rem;
+            line-height: 3.6rem;
+            margin-bottom: 15px;
+        }
     }
     h5 {
         &.header-label {
@@ -36,6 +46,11 @@ html, body {
             &:after {
                 content: '\2014';
                 margin: 0 8px;
+
+                @media #{$screen-xs} {
+                    margin: 0;
+                    content: '';
+                }
             }
         }
     }
@@ -56,6 +71,10 @@ html, body {
             font-family: $secondary-font-face;
             font-size: 1.8rem;
             font-weight: 700;
+        }
+
+        @media #{$screen-xs} {
+            line-height: 2.7rem;
         }
     }
     a {

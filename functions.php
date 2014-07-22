@@ -10,6 +10,7 @@ function sckls_exhibit_builder_display_random_featured_exhibit() {
         $html .= '    <h6 class="header-label">Featured Exhibit</h6>';
         $html .= '    <div class="overlay"></div>';
         $html .= '    <span class="title">' . $featuredExhibit->title . '</span>';
+        $html .= sckls_exhibit_builder_get_first_image($featuredExhibit);
         $html .= '</a>';
     } else {
         $html .= '<h4>No featured exhibits.</h4>';
@@ -72,5 +73,88 @@ function sckls_random_featured_item() {
     } else {
         $html .= '<h4>No featured items.</h4>';
     }
+    return $html;
+}
+
+function sckls_exhibit_builder_get_first_image($exhibit) {
+	$html = '';
+    $count = 0;
+
+	if (!$exhibit) {
+        $exhibit = get_current_record('exhibit');
+    }
+    set_loop_records('exhibit_page', $exhibit->TopPages);
+    
+    foreach (loop('exhibit_page') as $exhibitPage) {
+        $attachments = $exhibitPage->getAllAttachments();
+        foreach ($attachments as $attachment):
+            if ($count === 0){
+                $item = $attachment->getItem();
+                $file = $attachment->getFile();
+    
+                $html .= '<img src="' . file_display_url($file, 'original') . '" />';
+            }
+            $count++;
+        endforeach;
+    }
+    return $html;
+}
+
+function sckls_exhibit_builder_get_images($exhibit) {
+	$html = '';
+
+	if (!$exhibit) {
+        $exhibit = get_current_record('exhibit');
+    }
+    set_loop_records('exhibit_page', $exhibit->TopPages);
+    
+    foreach (loop('exhibit_page') as $exhibitPage) {
+        $attachments = $exhibitPage->getAllAttachments();
+        foreach ($attachments as $attachment):
+            $item = $attachment->getItem();
+            $file = $attachment->getFile();
+
+            $html .= '<div class="item">';
+            //$html .= '    <a href="' . record_url($item, null, true) . '" class="featured">';
+            $html .= '    <a>';
+            //$html .= '        <div class="overlay"></div>';
+            $html .= '        <div style="background-image: url(' . file_display_url($file, 'original') . ');" class="img"></div>';
+            //$html .= '        <span class="title">' . metadata($item, array('Dublin Core', 'Title')) . '</span>';
+            $html .= '    </a>';
+            $html .= '</div>';
+        endforeach;
+    }
+    return $html;
+}
+
+function sckls_exhibit_builder_page_nav($exhibitPage = null) {
+    $html = '';
+    if (!$exhibitPage) {
+        if (!($exhibitPage = get_current_record('exhibit_page', false))) {
+            return;
+        }
+    }
+
+    $exhibit = $exhibitPage->getExhibit();
+    $pagesTrail = $exhibitPage->getAncestors();
+    $pagesTrail[] = $exhibitPage;
+    $html .= '<li>';
+    $html .= '<a class="exhibit-title" href="'. html_escape(exhibit_builder_exhibit_uri($exhibit)) . '">';
+    $html .= html_escape($exhibit->title) .'</a></li>' . "\n";
+    foreach ($pagesTrail as $page) {
+        $linkText = $page->title;
+        $pageExhibit = $page->getExhibit();
+        $pageParent = $page->getParent();
+        $pageSiblings = ($pageParent ? exhibit_builder_child_pages($pageParent) : $pageExhibit->getTopPages()); 
+
+        $html .= "<li>\n<ul class='nav nav-pills nav-stacked'>\n";
+        foreach ($pageSiblings as $pageSibling) {
+            $html .= '<li' . ($pageSibling->id == $page->id ? ' class="current"' : '') . '>';
+            $html .= '<a class="exhibit-page-title" href="' . html_escape(exhibit_builder_exhibit_uri($exhibit, $pageSibling)) . '">';
+            $html .= html_escape($pageSibling->title) . "</a></li>\n";
+        }
+        $html .= "</ul>\n</li>\n";
+    }
+    $html = apply_filters('exhibit_builder_page_nav', $html);
     return $html;
 }

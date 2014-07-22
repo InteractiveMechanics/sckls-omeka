@@ -13,6 +13,13 @@
         }
     }
 
+    @media #{$screen-md} {
+        height: 250px;        
+    }
+    @media #{$screen-sm} {
+        height: 250px;
+    }
+
     .img {
         position: absolute;
         bottom: 0;
@@ -76,5 +83,10 @@
         line-height: 2.7rem;
         font-weight: 400;
         pointer-events: none;
+
+        @media #{$screen-md} {
+            font-size: 2.1rem;
+            line-height: 2.5rem;
+        }
     }
 }
