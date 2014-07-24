@@ -5,12 +5,18 @@
 function sckls_exhibit_builder_display_random_featured_exhibit() {
     $html = '';
     $featuredExhibit = exhibit_builder_random_featured_exhibit();
+    $image = sckls_exhibit_builder_get_first_image($featuredExhibit);
+
     if ($featuredExhibit) {
         $html .= '<a href="' . sckls_exhibit_builder_link_to_exhibit($featuredExhibit) . '" class="featured">';
         $html .= '    <h6 class="header-label">Featured Exhibit</h6>';
         $html .= '    <div class="overlay"></div>';
         $html .= '    <span class="title">' . $featuredExhibit->title . '</span>';
-        $html .= sckls_exhibit_builder_get_first_image($featuredExhibit);
+        if ($image) {
+            $html .= '<div style="background-image: url(' . $image . ');" class="img"></div>';
+        } else {
+            $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
+        }
         $html .= '</a>';
     } else {
         $html .= '<h4>No featured exhibits.</h4>';
@@ -92,7 +98,7 @@ function sckls_exhibit_builder_get_first_image($exhibit) {
                 $item = $attachment->getItem();
                 $file = $attachment->getFile();
     
-                $html .= '<img src="' . file_display_url($file, 'original') . '" />';
+                $html .= file_display_url($file, 'original');
             }
             $count++;
         endforeach;

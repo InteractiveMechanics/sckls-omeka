@@ -8,10 +8,10 @@ echo head(array(
     <div class="content-block">
         <h1><?php echo metadata('exhibit_page', 'title'); ?> <small><?php echo metadata('exhibit', 'title'); ?></small></h1>
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-12 col-md-8 col-lg-9">
                 <?php exhibit_builder_render_exhibit_page(); ?>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-12 col-md-4 col-lg-3 exhibit-nav">
                 <ul class="nav nav-pills nav-stacked">
                     <?php echo sckls_exhibit_builder_page_nav(); ?>
                     <?php echo exhibit_builder_child_page_nav(); ?>

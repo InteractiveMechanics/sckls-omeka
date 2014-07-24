@@ -58,8 +58,8 @@
         </div>
         <nav>
             <ul class="pager">
-                <li id="previous-item" class="previous"><?php echo link_to_previous_item_show('Previous'); ?></li>
-                <li id="next-item" class="next"><?php echo link_to_next_item_show('Next'); ?></li>
+                <li id="previous-item" class="previous"><?php echo link_to_previous_item_show('&larr; Previous'); ?></li>
+                <li id="next-item" class="next"><?php echo link_to_next_item_show('Next &rarr;'); ?></li>
             </ul>
         </nav>
     </div>

@@ -1,0 +1,56 @@
+// Partials: Exhibits
+
+.exhibit-nav {
+    .nav-pills {
+        li {
+            &.current {
+                a { 
+                    border-left: $sckls-beige 5px solid;
+
+                    &:hover {
+                        border-left: $sckls-red 5px solid;
+                    }
+                }
+            }
+
+            a {
+                border-radius: 0;
+                border-left: lighten($sckls-lightbeige, 5%) 5px solid;
+                background: lighten($sckls-lightbeige, 5%);
+                transition: #{$transition};
+                color: darken($sckls-darkbeige, 20%);
+
+                &:hover {
+                    background: $sckls-lightbeige;
+                    border-left: $sckls-lightbeige 5px solid;
+                }
+            }
+
+            .nav-pills {
+                li {
+                    &.current {
+                        a { 
+                            border-left: $sckls-beige 5px solid;
+        
+                            &:hover {
+                                border-left: $sckls-red 5px solid;
+                            }
+                        }
+                    }
+
+                    a {
+                        border-left: darken($sckls-lightbeige, 5%) 5px solid;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.exhibit-item-caption {
+    p {
+        font-size: 1.6rem;
+        font-style: italic;
+        color: $sckls-darkbeige;
+    }
+}

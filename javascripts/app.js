@@ -52,5 +52,10 @@ $(document).ready(function(){
 
     $("#image-gallery").lightGallery({
         mode:"fade"
-    }); 
+    });
+
+    $('.link-to-exhibit').each(function() {
+        var html = $(this);
+        $(this).prev().append(html);
+    });
 });

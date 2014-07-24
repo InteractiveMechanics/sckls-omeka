@@ -33,13 +33,12 @@
                 <?php endif; ?>
             <?php endforeach; ?>
             </div>
-        <?php else: ?>
-            <p><?php echo 'No recent items available.'; ?></p>
         <?php endif; ?>
 
         <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
             <hr>
-            <p><?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'), array('snippet'=>150))); ?></div>
+            <?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'), array('snippet'=>150))); ?>
+            <?php echo link_to_collection('View this collection', array('class' => 'link-to-exhibit')); ?>
         <?php endif; ?>        
     </div>
     <?php endforeach; ?>

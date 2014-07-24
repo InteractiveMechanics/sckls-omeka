@@ -76,7 +76,8 @@ html, body {
     html h1 a, html h2 a, html h3 a, body h1 a, body h2 a, body h3 a {
       font-family: "Gentium Basic", serif; }
   html h1, body h1 {
-    font-size: 4.2rem; }
+    font-size: 4.2rem;
+    margin-bottom: 20px; }
     @media (min-width: 768px) and (max-width: 991px) {
       html h1, body h1 {
         font-size: 3.6rem;
@@ -86,6 +87,14 @@ html, body {
         font-size: 3.2rem;
         line-height: 3.6rem;
         margin-bottom: 15px; } }
+    html h1 > small, body h1 > small {
+      font-size: 50%;
+      margin-left: 10px; }
+    html h1 > a, body h1 > a {
+      color: inherit; }
+      html h1 > a:hover, body h1 > a:hover {
+        color: inherit;
+        opacity: 0.8; }
   html h5.header-label, body h5.header-label {
     text-align: center;
     font-weight: 900;
@@ -124,6 +133,11 @@ html, body {
     text-decoration: none !important; }
     html a:hover, body a:hover {
       text-decoration: none; }
+    html a.link-to-exhibit, body a.link-to-exhibit {
+      font-style: italic;
+      letter-spacing: -0.5px; }
+      html a.link-to-exhibit:before, body a.link-to-exhibit:before {
+        content: "\00a0\00a0"; }
 
 nav.navbar {
   margin-bottom: 0;
@@ -167,7 +181,7 @@ header {
     header {
       height: 240px; } }
   #home header {
-    height: 400px; }
+    height: 300px; }
     @media (max-width: 767px) {
       #home header {
         height: 320px; } }
@@ -562,21 +576,53 @@ footer {
       pointer-events: none;
       opacity: 0;
       transition: all 0.5s; }
-  .items-list .slick-prev,
-  .items-list .slick-next {
-    color: black;
-    background: black;
+  .items-list .slick-next, .items-list .slick-prev {
     height: 60px;
     margin-top: -22px;
-    width: 35px; }
+    width: 35px;
+    background: #a7a69b;
+    color: white;
+    transition: all 0.5s; }
+    .items-list .slick-next:before, .items-list .slick-prev:before {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 1.6rem; }
+    .items-list .slick-next:after, .items-list .slick-prev:after {
+      content: '';
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      right: 0;
+      opacity: 0.5; }
+    .items-list .slick-next:hover, .items-list .slick-prev:hover {
+      background: #757467; }
     @media (max-width: 767px) {
-      .items-list .slick-prev,
-      .items-list .slick-next {
+      .items-list .slick-next, .items-list .slick-prev {
         display: none !important; } }
   .items-list .slick-prev {
     left: -60px; }
+    .items-list .slick-prev:before {
+      content: "\e079"; }
+    .items-list .slick-prev:after {
+      border-left: 1px solid white;
+      left: 4px; }
   .items-list .slick-next {
     right: -60px; }
+    .items-list .slick-next:before {
+      content: "\e080"; }
+    .items-list .slick-next:after {
+      border-right: 1px solid white;
+      right: 4px; }
 
 #map_browse {
   height: 450px; }
@@ -600,3 +646,28 @@ footer {
 
 #map-links a {
   display: block; }
+
+.exhibit-nav .nav-pills li.current a {
+  border-left: #c6ab76 5px solid; }
+  .exhibit-nav .nav-pills li.current a:hover {
+    border-left: #c86857 5px solid; }
+.exhibit-nav .nav-pills li a {
+  border-radius: 0;
+  border-left: #f7f7f3 5px solid;
+  background: #f7f7f3;
+  transition: all 0.5s;
+  color: #757467; }
+  .exhibit-nav .nav-pills li a:hover {
+    background: #ecece4;
+    border-left: #ecece4 5px solid; }
+.exhibit-nav .nav-pills li .nav-pills li.current a {
+  border-left: #c6ab76 5px solid; }
+  .exhibit-nav .nav-pills li .nav-pills li.current a:hover {
+    border-left: #c86857 5px solid; }
+.exhibit-nav .nav-pills li .nav-pills li a {
+  border-left: #e1e1d5 5px solid; }
+
+.exhibit-item-caption p {
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #a7a69b; }

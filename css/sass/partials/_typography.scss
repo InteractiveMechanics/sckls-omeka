@@ -18,6 +18,7 @@ html, body {
     }
     h1 {
         font-size: 4.2rem;
+        margin-bottom: 20px;
 
         @media #{$screen-sm} {
             font-size: 3.6rem;
@@ -27,6 +28,19 @@ html, body {
             font-size: 3.2rem;
             line-height: 3.6rem;
             margin-bottom: 15px;
+        }
+
+        > small {
+            font-size: 50%;
+            margin-left: 10px;
+        }
+        > a {
+            color: inherit;
+
+            &:hover {
+                color: inherit;
+                opacity: 0.8;
+            }
         }
     }
     h5 {
@@ -82,6 +96,14 @@ html, body {
     
         &:hover {
             text-decoration: none;
+        }
+        &.link-to-exhibit {
+            font-style: italic;
+            letter-spacing: -0.5px;
+
+            &:before {
+                content: '\00a0\00a0'
+            }
         }
     }
 }

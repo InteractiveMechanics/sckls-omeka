@@ -17,6 +17,7 @@
                 <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
                     <hr>
                     <?php echo $exhibitDescription; ?>
+                    <?php echo link_to_exhibit('View this exhibit', array('class' => 'link-to-exhibit')); ?>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
