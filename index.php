@@ -32,10 +32,11 @@
                     </div>
                     <div class="hidden-sm col-md-4">
                         <div class="content-block less-padding min-height">
-                        <?php if (function_exists('exhibit_builder_display_random_featured_exhibit')): ?>
+                        <?php $exhibit = get_records('Exhibit', array()); ?>
+                        <?php if (plugin_is_active('ExhibitBuilder') && $exhibit): ?>
                             <?php echo sckls_exhibit_builder_display_random_featured_exhibit(); ?>
                         <?php else : ?>
-                            <h4>No featured exhibits.</h4>
+                            <h4 class="not-featured">No featured exhibits.</h4>
                         <?php endif; ?>
                         </div>
                     </div>

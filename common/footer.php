@@ -33,7 +33,7 @@
             <div class="close">&times;</div>
             <span class="glyphicon glyphicon-search"></span>
             <form id="search-omeka-container" action="<?php echo public_url(''); ?>search">
-                <?php echo search_form(array('show_advanced' => false, 'form_attributes' => 'class')); ?>
+                <?php echo search_form(array('show_advanced' => false)); ?>
             </form>
             <?php $googleCode = get_theme_option('Theme: Googlecode'); ?>
             <?php if($googleCode && !empty($googleCode)): ?>

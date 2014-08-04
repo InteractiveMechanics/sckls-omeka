@@ -43,6 +43,16 @@ html, body {
             }
         }
     }
+    h4 {
+        &.not-featured {
+            text-align: center;
+            padding: 110px 0;
+            height: 255px;
+            font-style: italic;
+            font-weight: 700;
+            color: #CCC;
+        }
+    }
     h5 {
         &.header-label {
             text-align: center;

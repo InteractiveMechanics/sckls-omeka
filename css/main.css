@@ -95,6 +95,13 @@ html, body {
       html h1 > a:hover, body h1 > a:hover {
         color: inherit;
         opacity: 0.8; }
+  html h4.not-featured, body h4.not-featured {
+    text-align: center;
+    padding: 110px 0;
+    height: 255px;
+    font-style: italic;
+    font-weight: 700;
+    color: #CCC; }
   html h5.header-label, body h5.header-label {
     text-align: center;
     font-weight: 900;

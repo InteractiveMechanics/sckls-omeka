@@ -25,6 +25,7 @@
     
     <?php else: ?>
         <div class="content-block">
+            <h1>Browse all exhibits</h1>
             <p><?php echo __('There are no exhibits available yet.'); ?></p>
         </div>
     <?php endif; ?>

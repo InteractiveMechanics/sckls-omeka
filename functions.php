@@ -18,8 +18,6 @@ function sckls_exhibit_builder_display_random_featured_exhibit() {
             $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
         }
         $html .= '</a>';
-    } else {
-        $html .= '<h4>No featured exhibits.</h4>';
     }
     $html = apply_filters('exhibit_builder_display_random_featured_exhibit', $html);
     return $html;
@@ -51,7 +49,7 @@ function sckls_random_featured_collection() {
 	    $html .= '    <span class="title">' . metadata('collection', array('Dublin Core', 'Title')) . '</span>';
         $html .= '</a>';
 	} else {
-        $html .= '<h4>No featured collections.</h4>';
+        $html .= '<h4 class="not-featured">No featured collections.</h4>';
     }
     return $html;
 }
@@ -77,7 +75,7 @@ function sckls_random_featured_item() {
             $html .= '</a>';
     	}
     } else {
-        $html .= '<h4>No featured items.</h4>';
+        $html .= '<h4 class="not-featured">No featured items.</h4>';
     }
     return $html;
 }
