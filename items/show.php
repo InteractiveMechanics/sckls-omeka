@@ -24,6 +24,17 @@
                 <?php else: ?>
                     <div class="no-image">No photos available.</div>
                 <?php endif; ?>
+                <?php if (plugin_is_active('BookReader')): ?>
+                    <?php
+                        fire_plugin_hook('book_reader_item_show', array(
+                            'view' => $this,
+                            'item' => $item,
+                            'page' => '0',
+                            'embed_functions' => false,
+                            'mode_page' => 1,
+                        ));
+                    ?>
+                <?php endif; ?>
             </div>
             <div class="col-sm-7">
                 <?php if(metadata('item', array('Dublin Core', 'Description'))): ?>
