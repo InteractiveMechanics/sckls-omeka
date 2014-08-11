@@ -8,8 +8,8 @@ Customization Features:
   *  Title
   *  Subtitle
   *  About this site
-  *  Header image
+  *  Header background image
   *  Primary site color
-  *  Toggle "featured" content
-  *  Footer logos
-  *  Custom Google search
+  *  Toggle "featured" content on the homepage
+  *  Footer logos (up to 3)
+  *  Custom Google search via SCKLS
