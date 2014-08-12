@@ -40,9 +40,16 @@ function sckls_random_featured_collection() {
 		$html .= '<a href="' . record_url($collection, null, true) . '" class="featured">';
         $html .= '    <h6 class="header-label">Featured Collection</h6>';
         $html .= '    <div class="overlay"></div>';
-        $image = $collection->Files;
-        if ($image) {
-            $html .= '<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>';
+
+        $items = get_records('Item', array('collection'=>$collection->id), 8);
+        set_loop_records('items', $items);
+        if (has_loop_records('items')){
+            $image = $items[0]->Files;
+            if ($image) {
+                $html .= '<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>';
+            } else {
+                $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
+            }
         } else {
             $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
         }

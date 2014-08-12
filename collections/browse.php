@@ -9,7 +9,8 @@
         <?php foreach (loop('collections') as $collection): ?>
         <div class="content-block browse-page">        
             <h1><?php echo link_to_collection(); ?></h1>
-            <?php 
+            <?php
+                //if ($collection->Files):
                 $items = get_records('Item', array('collection'=>$collection->id), 8);
                 set_loop_records('items', $items);
                 if (has_loop_records('items')): ?>
@@ -34,7 +35,7 @@
                     <?php endif; ?>
                 <?php endforeach; ?>
                 </div>
-            <?php endif; ?>
+            <?php endif; //endif; ?>
     
             <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
                 <hr>
