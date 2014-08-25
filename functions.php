@@ -5,7 +5,11 @@
 function sckls_exhibit_builder_display_random_featured_exhibit() {
     $html = '';
     $featuredExhibit = exhibit_builder_random_featured_exhibit();
-    $image = sckls_exhibit_builder_get_first_image($featuredExhibit);
+    if ($featuredExhibit) {
+        $image = sckls_exhibit_builder_get_first_image($featuredExhibit);
+    } else {
+        $image = '';
+    }
 
     if ($featuredExhibit) {
         $html .= '<a href="' . sckls_exhibit_builder_link_to_exhibit($featuredExhibit) . '" class="featured">';
@@ -18,6 +22,8 @@ function sckls_exhibit_builder_display_random_featured_exhibit() {
             $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
         }
         $html .= '</a>';
+    } else {
+        $html .= '<h4 class="not-featured">No exhibits added, yet.</h4>';
     }
     $html = apply_filters('exhibit_builder_display_random_featured_exhibit', $html);
     return $html;
