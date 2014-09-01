@@ -37,3 +37,19 @@ body {
         }
     }
 }
+
+#lightGallery-outer {
+    background: #0d0d0d !important;
+    background: rgba(#0d0d0d, 0.9) !important;    
+}
+#lightGallery-close {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+    &:after {
+        font-size: 3.6rem !important;
+        font-weight: 100 !important;
+    }
+}

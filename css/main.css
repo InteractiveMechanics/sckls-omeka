@@ -65,6 +65,18 @@ body {
       .content .content-block {
         padding: 16px 20px; } }
 
+#lightGallery-outer {
+  background: #0d0d0d !important;
+  background: rgba(13, 13, 13, 0.9) !important; }
+
+#lightGallery-close {
+  opacity: 0.5; }
+  #lightGallery-close:hover {
+    opacity: 1; }
+  #lightGallery-close:after {
+    font-size: 3.6rem !important;
+    font-weight: 100 !important; }
+
 html, body {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 62.5%;
@@ -260,7 +272,7 @@ footer {
   z-index: 999;
   padding-top: 40px; }
   #search-overlay .close {
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: 300; }
   #search-overlay .glyphicon-search {
     background: none;
@@ -370,6 +382,7 @@ footer {
     z-index: 3;
     background-size: 125%;
     background-position: center center;
+    background-repeat: no-repeat;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.75) inset; }
     .featured .img.default {
       width: 100%;
@@ -557,6 +570,7 @@ footer {
       z-index: 3;
       background-size: 125%;
       background-position: center center;
+      background-repeat: no-repeat;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.75) inset; }
       .items-list .item a .img:before {
         content: '';
@@ -667,6 +681,13 @@ footer {
   .exhibit-nav .nav-pills li a:hover {
     background: #ecece4;
     border-left: #ecece4 5px solid; }
+  .exhibit-nav .nav-pills li a.exhibit-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    background: transparent;
+    border: none;
+    padding-left: 0;
+    margin-left: 0; }
 .exhibit-nav .nav-pills li .nav-pills li.current a {
   border-left: #c6ab76 5px solid; }
   .exhibit-nav .nav-pills li .nav-pills li.current a:hover {

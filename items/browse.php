@@ -11,7 +11,7 @@
             <?php if ($total_results > 0): ?>
             <?php
                 $sortLinks[__('Title')] = 'Dublin Core,Title';
-                $sortLinks[__('Creator')] = 'Dublin Core,Creator';
+                $sortLinks[__('Collection')] = 'Collection';
                 ?>
                 <div class="browse-items-header hidden-xs">
                     <div class="row">
@@ -19,7 +19,7 @@
                             <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?>
                         </div>
                         <div class="col-sm-3 col-md-2">
-                            <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Creator'), array('')); ?>
+                            <?php echo browse_sort_links(array('Collection'=>'Collection'), array('')); ?>
                         </div>
                         <div class="hidden-sm col-md-2">
                             Subject

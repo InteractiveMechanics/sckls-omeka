@@ -24,6 +24,14 @@
                     background: $sckls-lightbeige;
                     border-left: $sckls-lightbeige 5px solid;
                 }
+                &.exhibit-title {
+                    font-size: 1.8rem;
+                    font-weight: 300;
+                    background: transparent;
+                    border: none;         
+                    padding-left: 0;
+                    margin-left: 0;
+                }
             }
 
             .nav-pills {

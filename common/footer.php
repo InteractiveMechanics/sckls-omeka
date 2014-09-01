@@ -17,7 +17,7 @@
                             foreach ($logos as $logo) {
                                 if (!empty($logo)){
                                     echo '<div class="col-xs-4 col-sm-6 col-md-4">';
-                                    echo '    <img src="' . url('/') . '/files/theme_uploads/' . $logo . '" />';
+                                    echo '    <img src="' . url('') . '/files/theme_uploads/' . $logo . '" />';
                                     echo '</div>';
                                 }
                             }
@@ -35,7 +35,9 @@
             <form id="search-omeka-container" action="<?php echo public_url(''); ?>search">
                 <?php echo search_form(array('show_advanced' => false)); ?>
             </form>
-            <?php $googleCode = get_theme_option('Theme: Googlecode'); ?>
+            <?php 
+                $googleCode = get_theme_option('Theme: Googlecode');
+            ?>
             <?php if($googleCode && !empty($googleCode)): ?>
             <div id="search-library-container" class="hidden">
                 <script>
@@ -50,10 +52,10 @@
                     s.parentNode.insertBefore(gcse, s);
                   })();
                 </script>
-                <gcse:searchbox-only resultsUrl="<?php echo url('/search-all'); ?>"></gcse:searchbox-only>
+                <gcse:searchbox-only resultsUrl="<?php echo url('/search?all'); ?>"></gcse:searchbox-only>
             </div>
             <input type="radio" name="search-type" id="search-omeka" checked /> <label for="search-omeka">Search the library</label>
-            <input type="radio" name="search-type" id="search-library" /> <label for="search-library">Search the library system</label>
+            <input type="radio" name="search-type" id="search-library" /> <label for="search-library">Search all sites</label>
             <?php endif; ?>
         </div>
     </div>

@@ -7,7 +7,7 @@ $(document).ready(function(){
         if (type === 'search-library'){
             $('#search-library-container').removeClass('hidden');
             $('#search-omeka-container').addClass('hidden');
-            $('.gsc-input').attr('placeholder', 'Search the library system');
+            $('.gsc-input').attr('placeholder', 'Search all sites');
         } else if (type === 'search-omeka'){
             $('#search-library-container').addClass('hidden');
             $('#search-omeka-container').removeClass('hidden');
@@ -16,7 +16,7 @@ $(document).ready(function(){
     $('#search-overlay').on('click', '.close', function(){
         $('#search-overlay').fadeToggle(400); 
     });
-    $('input.gsc-input').attr('placeholder', 'Search the library system');
+    $('input.gsc-input').attr('placeholder', 'Search all sites');
 
     $('.items-list').slick({
         dots: false,

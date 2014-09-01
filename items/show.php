@@ -2,7 +2,7 @@
 
 <div class="container single-item">
     <div class="content-block">
-        <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?> <small><?php echo metadata('item', 'Collection Name'); ?></small></h1>
+        <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?> <small><?php echo html_entity_decode(metadata('item', 'Collection Name')); ?></small></h1>
         
         <div class="row">
             <div class="col-sm-5">
@@ -23,17 +23,6 @@
                 </ul>
                 <?php else: ?>
                     <div class="no-image">No photos available.</div>
-                <?php endif; ?>
-                <?php if (plugin_is_active('BookReader')): ?>
-                    <?php
-                        fire_plugin_hook('book_reader_item_show', array(
-                            'view' => $this,
-                            'item' => $item,
-                            'page' => '0',
-                            'embed_functions' => false,
-                            'mode_page' => 1,
-                        ));
-                    ?>
                 <?php endif; ?>
             </div>
             <div class="col-sm-7">
@@ -65,6 +54,8 @@
                     <h6>Source</h6>
                     <p><?php echo metadata('item', array('Dublin Core', 'Source')); ?></p>
                 <?php endif; ?>
+                <h6>Citation</h6>
+                <?php echo metadata('item', 'citation', array('no_escape' => true)); ?>
             </div>
         </div>
         <nav>
