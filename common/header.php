@@ -53,10 +53,7 @@
         header {
             background-image: url('<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Theme: Background'); ?>');
         }
-        header .overlay {
-            background: #<?php echo get_theme_option('Theme: Color'); ?>;
-        }
-        .content .overlay:hover {
+        .content {
             background: #<?php echo get_theme_option('Theme: Color'); ?>;
         }
     </style>
@@ -86,10 +83,12 @@
     <header>
         <div class="overlay"></div>
         <div class="container">
-            <div class="branding">
-                <h1><?php echo link_to_home_page(); ?></h1>
-                <h4><?php echo get_theme_option('Theme: Subtitle'); ?></h4>
-            </div>
+            <?php if(!get_theme_option('Theme: Show')): ?>
+                <div class="branding">
+                    <h1><?php echo link_to_home_page(); ?></h1>
+                    <h4><?php echo get_theme_option('Theme: Subtitle'); ?></h4>
+                </div>
+            <?php endif; ?>
         </div>
     </header>
     <div class="content">

@@ -54,7 +54,7 @@
                 </script>
                 <gcse:searchbox-only resultsUrl="<?php echo url('/search?all'); ?>"></gcse:searchbox-only>
             </div>
-            <input type="radio" name="search-type" id="search-omeka" checked /> <label for="search-omeka">Search the library</label>
+            <input type="radio" name="search-type" id="search-omeka" checked /> <label for="search-omeka">Search this site</label>
             <input type="radio" name="search-type" id="search-library" /> <label for="search-library">Search all sites</label>
             <?php endif; ?>
         </div>

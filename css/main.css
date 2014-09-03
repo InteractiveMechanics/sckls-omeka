@@ -210,7 +210,8 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: 0.5; }
+    opacity: 0.5;
+    background: #666; }
   header .branding {
     position: relative;
     z-index: 10;
