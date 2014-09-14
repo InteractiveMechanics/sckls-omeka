@@ -56,6 +56,10 @@
         .content {
             background: #<?php echo get_theme_option('Theme: Color'); ?>;
         }
+        .content .overlay:hover {
+            background: #<?php echo get_theme_option('Theme: Color'); ?>;
+        }
+    </style>
     </style>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>

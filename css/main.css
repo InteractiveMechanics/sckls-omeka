@@ -204,14 +204,6 @@ header {
     @media (max-width: 767px) {
       #home header {
         height: 320px; } }
-  header .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.5;
-    background: #666; }
   header .branding {
     position: relative;
     z-index: 10;
@@ -281,11 +273,11 @@ footer {
     color: #a7a69b;
     border: none;
     position: absolute;
-    top: 140px; }
+    top: 155px; }
     @media (max-width: 767px) {
       #search-overlay .glyphicon-search {
         font-size: 1.8rem;
-        top: 105px; } }
+        top: 120px; } }
 
 #search-overlay-button > span {
   margin-right: 6px;
@@ -346,6 +338,7 @@ footer {
 #search-library-container td.gsc-search-button {
   display: none; }
 
+.gsc-tabsArea,
 .gsc-orderby-container {
   display: none; }
 

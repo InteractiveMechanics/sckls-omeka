@@ -20,11 +20,11 @@
         color: $sckls-darkbeige;
         border: none;
         position: absolute;
-        top: 140px;
+        top: 155px;
 
         @media #{$screen-xs} {
             font-size: 1.8rem;
-            top: 105px;
+            top: 120px;
         }
     }
 }
@@ -108,6 +108,7 @@
     }
 }
 
+.gsc-tabsArea,
 .gsc-orderby-container {
     display: none;
 }

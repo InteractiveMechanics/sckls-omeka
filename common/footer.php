@@ -17,7 +17,7 @@
                             foreach ($logos as $logo) {
                                 if (!empty($logo)){
                                     echo '<div class="col-xs-4 col-sm-6 col-md-4">';
-                                    echo '    <img src="' . url('') . '/files/theme_uploads/' . $logo . '" />';
+                                    echo '    <img src="' . public_url('') . 'files/theme_uploads/' . $logo . '" />';
                                     echo '</div>';
                                 }
                             }
