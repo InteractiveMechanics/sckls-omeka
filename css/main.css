@@ -291,6 +291,7 @@ footer {
     border: none;
     background: none;
     font-size: 7.2rem;
+    line-height: 1.4;
     font-weight: 300;
     color: #a7a69b;
     height: 108px;
@@ -303,6 +304,10 @@ footer {
 
 #search-library-container form.gsc-search-box {
   margin: 0; }
+  #search-library-container form.gsc-search-box:after, #search-library-container form.gsc-search-box:before {
+    clear: both;
+    content: " ";
+    display: table; }
 #search-library-container table.gsc-search-box {
   margin-bottom: 0; }
 #search-library-container td.gsc-input {
@@ -322,6 +327,7 @@ footer {
     border: none;
     background: none !important;
     font-size: 7.2rem;
+    line-height: 1.4;
     font-weight: 300;
     color: #a7a69b;
     height: 116px !important;

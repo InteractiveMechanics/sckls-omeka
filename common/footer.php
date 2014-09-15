@@ -32,25 +32,27 @@
         <div class="container">
             <div class="close">&times;</div>
             <span class="glyphicon glyphicon-search"></span>
-            <form id="search-omeka-container" action="<?php echo public_url(''); ?>search">
+            <form id="search-omeka-container" action="<?php echo public_url(''); ?>search" class="clearfix">
                 <?php echo search_form(array('show_advanced' => false)); ?>
             </form>
             <?php 
                 $googleCode = get_theme_option('Theme: Googlecode');
             ?>
             <?php if($googleCode && !empty($googleCode)): ?>
-            <div id="search-library-container" class="hidden">
+            <div id="search-library-container" class="hidden clearfix">
                 <script>
-                  (function() {
-                    var cx = '<?php echo $googleCode; ?>';
-                    var gcse = document.createElement('script');
-                    gcse.type = 'text/javascript';
-                    gcse.async = true;
-                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                        '//www.google.com/cse/cse.js?cx=' + cx;
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(gcse, s);
-                  })();
+                  function doSearchBox(){
+                      (function() {
+                        var cx = '<?php echo $googleCode; ?>';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                            '//www.google.com/cse/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                      })();}
+                  setTimeout(doSearchBox, 0);
                 </script>
                 <gcse:searchbox-only resultsUrl="<?php echo url('/search?all'); ?>"></gcse:searchbox-only>
             </div>

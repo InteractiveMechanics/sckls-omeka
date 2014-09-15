@@ -45,6 +45,7 @@
         border: none;
         background: none;
         font-size: 7.2rem;
+        line-height: 1.4;
         font-weight: 300;
         color: $sckls-darkbeige;
         height: 108px;
@@ -61,6 +62,13 @@
 #search-library-container {
     form.gsc-search-box {
         margin: 0;
+
+        &:after,
+        &:before {
+            clear: both;
+            content: " ";
+            display: table;
+        }
     }
     table.gsc-search-box {
         margin-bottom: 0;
@@ -85,6 +93,7 @@
             border: none;
             background: none !important;
             font-size: 7.2rem;
+            line-height: 1.4;
             font-weight: 300;
             color: $sckls-darkbeige;
             height: 116px !important;
