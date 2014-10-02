@@ -60,6 +60,7 @@ header {
     height: 200px;
     position: relative;
     background-size: cover;
+    background-color: #E0E0E0;
     background-image: url(../images/defaultBackground.jpg);
 
     @media #{$screen-xs} {
