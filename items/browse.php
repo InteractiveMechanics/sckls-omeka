@@ -60,7 +60,7 @@
                 </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p><?php echo 'No items added, yet.'; ?></p>
+                <p class="text-muted"><?php echo 'No items found.'; ?></p>
             <?php endif; ?>
         </div>
         <?php echo pagination_links(); ?>        

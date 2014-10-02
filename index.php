@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="content-block extra-padding">
-                    <h5 class="header-label">About the <?php echo option('site_title'); ?></h6>
+                    <h5 class="header-label">About <?php echo option('site_title'); ?></h6>
                     <p><?php echo get_theme_option('Homepage: Text'); ?></p>
                 </div>
             </div>

@@ -51,7 +51,9 @@
 
     <style>
         header {
-            background-image: url('<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Theme: Background'); ?>');
+            <?php if(get_theme_option('Theme: Background')): ?>
+                background-image: url('<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Theme: Background'); ?>');
+            <?php endif; ?>
         }
         .content {
             background: #<?php echo get_theme_option('Theme: Color'); ?>;

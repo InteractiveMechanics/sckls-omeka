@@ -10,49 +10,34 @@
                 <?php if ($images): ?>
                 <ul id="image-gallery" class="clearfix">
                     <?php foreach ($images as $image): ?>
-                        <?php if ($imagesCount === 1): ?>
-                            <li class="image-large" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">
-                                <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
-                            </li>
-                        <?php else: ?>
-                            <li class="image-small" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">
-                                <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
-                            </li>
+                        <?php $mime = $image->mime_type; ?>
+                        <?php if (strstr($mime, 'image') == true): ?>
+                            <?php if ($imagesCount === 1): ?>
+                                <li class="image-large" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">
+                                    <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
+                                </li>
+                            <?php else: ?>
+                                <li class="image-small" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">
+                                    <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
+                                </li>
+                            <?php endif; ?>
                         <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                 </ul>
                 <?php else: ?>
-                    <div class="no-image">No photos available.</div>
+                    <img src="<?php echo img('defaultImage@2x.jpg'); ?>" style="max-width:100%;" />
                 <?php endif; ?>
             </div>
             <div class="col-sm-7">
-                <?php if(metadata('item', array('Dublin Core', 'Description'))): ?>
-                    <h6>Description</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Description')); ?></p>
-                <?php endif; ?>
-                <?php if(metadata('item', array('Dublin Core', 'Subject'))): ?>
-                    <h6>Subject</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Subject')); ?></p>
-                <?php endif; ?>
-                <?php if(metadata('item', array('Dublin Core', 'Creator'))): ?>
-                    <h6>Creator</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Creator')); ?></p>
-                <?php endif; ?>
-                <?php if(metadata('item', array('Dublin Core', 'Date'))): ?>
-                    <h6>Date</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
-                <?php endif; ?>
-                <?php if(metadata('item', array('Dublin Core', 'Publisher'))): ?>
-                    <h6>Publisher</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Publisher')); ?></p>
-                <?php endif; ?>
-                <?php if(metadata('item', array('Dublin Core', 'Format'))): ?>
-                    <h6>Format</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Format')); ?></p>
-                <?php endif; ?>
-                <?php if(metadata('item', array('Dublin Core', 'Source'))): ?>
-                    <h6>Source</h6>
-                    <p><?php echo metadata('item', array('Dublin Core', 'Source')); ?></p>
+                <?php echo all_element_texts('item', array(false, false)); ?>
+                <?php if ($images): ?>
+                    <h6>Files</h6>
+                    <ul>
+                        <?php foreach ($images as $image): ?>
+                            <li><?php echo link_to_file_show(array(), '',$image); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <hr>
                 <?php endif; ?>
                 <h6>Citation</h6>
                 <?php echo metadata('item', 'citation', array('no_escape' => true)); ?>

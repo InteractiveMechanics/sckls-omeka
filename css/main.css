@@ -195,7 +195,8 @@ nav.navbar {
 header {
   height: 200px;
   position: relative;
-  background-size: cover; }
+  background-size: cover;
+  background-image: url(../images/defaultBackground.jpg); }
   @media (max-width: 767px) {
     header {
       height: 240px; } }

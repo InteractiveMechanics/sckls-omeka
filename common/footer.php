@@ -10,14 +10,20 @@
                     <div class="row partners">
                         <?php 
                             $logos = array(
-                                get_theme_option('Theme: Footer1'),
-                                get_theme_option('Theme: Footer2'),
-                                get_theme_option('Theme: Footer3')
+                                array( get_theme_option('Theme: Footer1'), get_theme_option('Theme: Footer1link')),
+                                array( get_theme_option('Theme: Footer2'), get_theme_option('Theme: Footer2link')),
+                                array( get_theme_option('Theme: Footer3'), get_theme_option('Theme: Footer3link'))
                             );
                             foreach ($logos as $logo) {
-                                if (!empty($logo)){
+                                if (!empty($logo[0])){
                                     echo '<div class="col-xs-4 col-sm-6 col-md-4">';
-                                    echo '    <img src="' . public_url('') . 'files/theme_uploads/' . $logo . '" />';
+                                    if (!empty($logo[1])){
+                                        echo '<a href="' . $logo[1] . '" target="_blank">';
+                                    }
+                                    echo '        <img src="' . public_url('') . 'files/theme_uploads/' . $logo[0] . '" />';
+                                    if (!empty($logo[1])){
+                                        echo '</a>';
+                                    }
                                     echo '</div>';
                                 }
                             }
@@ -58,6 +64,7 @@
             </div>
             <input type="radio" name="search-type" id="search-omeka" checked /> <label for="search-omeka">Search this site</label>
             <input type="radio" name="search-type" id="search-library" /> <label for="search-library">Search all sites</label>
+            <div class="pull-right"><?php echo link_to_item_search(__('Advanced Search')); ?></div>
             <?php endif; ?>
         </div>
     </div>
