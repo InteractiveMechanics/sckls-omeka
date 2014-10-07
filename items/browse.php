@@ -19,7 +19,7 @@
                             <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?>
                         </div>
                         <div class="col-sm-3 col-md-2">
-                            <?php echo browse_sort_links(array('Collection'=>'Collection'), array('')); ?>
+                            <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Creator'), array('')); ?>
                         </div>
                         <div class="hidden-sm col-md-2">
                             Subject

@@ -58,4 +58,6 @@ $(document).ready(function(){
         var html = $(this);
         $(this).prev().append(html);
     });
+
+    $('.navbar .navbar-nav').find('a[href*="http://"]').attr('target','_blank');
 });
