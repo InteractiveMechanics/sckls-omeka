@@ -66,7 +66,7 @@
                                     echo '  <a href="' . record_url($item, null, true) . '">';
                                     echo '    <div class="overlay"></div>';
                                     if ($image) {
-                                        echo '<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>';
+                                        echo '<div style="background-image: url(' . file_display_url($image[0], 'fullsize') . ');" class="img"></div>';
                                     }
                             	    echo '    <span class="title">' . metadata('item', array('Dublin Core', 'Title')) . '</span>';
                                     echo '  </a>';

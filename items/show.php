@@ -6,39 +6,16 @@
         
         <div class="row">
             <div class="col-sm-5">
-                <?php $images = $item->Files; $imagesCount = 1; ?>
-                <?php if ($images): ?>
-                <ul id="image-gallery" class="clearfix">
-                    <?php foreach ($images as $image): ?>
-                        <?php $mime = $image->mime_type; ?>
-                        <?php if (strstr($mime, 'image') == true): ?>
-                            <?php if ($imagesCount === 1): ?>
-                                <li class="image-large" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">
-                                    <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
-                                </li>
-                            <?php else: ?>
-                                <li class="image-small" data-src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>">
-                                    <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
-                                </li>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    <?php $imagesCount++; endforeach; ?>
-                </ul>
+                <?php if (metadata('item', 'has files')): ?>
+                    <ul id="image-gallery" class="clearfix">
+                       <?php echo sckls_item_image_gallery(); ?>
+                    </ul>
                 <?php else: ?>
                     <img src="<?php echo img('defaultImage@2x.jpg'); ?>" style="max-width:100%;" />
                 <?php endif; ?>
             </div>
             <div class="col-sm-7">
                 <?php echo all_element_texts('item', array(false, false)); ?>
-                <?php if ($images): ?>
-                    <h6>Files</h6>
-                    <ul>
-                        <?php foreach ($images as $image): ?>
-                            <li><?php echo link_to_file_show(array(), '',$image); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <hr>
-                <?php endif; ?>
                 <h6>Citation</h6>
                 <?php echo metadata('item', 'citation', array('no_escape' => true)); ?>
             </div>

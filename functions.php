@@ -175,3 +175,51 @@ function sckls_exhibit_builder_page_nav($exhibitPage = null) {
     $html = apply_filters('exhibit_builder_page_nav', $html);
     return $html;
 }
+
+function sckls_item_image_gallery($attrs = array(), $imageType = 'square_thumbnail', $filesShow = false, $item = null) {
+    if (!$item) {
+        $item = get_current_record('item');
+    }
+
+    $files = $item->Files;
+    if (!$files) {
+        return '';
+    }
+
+    $defaultAttrs = array(
+        'wrapper' => array('id' => 'item-images'),
+        'linkWrapper' => array(),
+        'link' => array(),
+        'image' => array()
+    );
+    $attrs = array_merge($defaultAttrs, $attrs);
+    $count = 1;
+    $html = '';
+
+    foreach ($files as $file) {
+        $mime = $file->mime_type;
+
+        if ($count == 1){
+            $class = 'image-large';
+        } else {
+            $class = 'image-small';
+        }
+        if (strstr($mime, 'image') == true) {
+            $html .= '<li data-src="' . $file->getWebPath('original') . '" class="' . $class . '">';
+        } else {
+            $html .= '<li class="' . $class . '">';
+        }
+
+        $image = file_image($imageType, $attrs['image'], $file);
+        if (strstr($mime, 'image') == true) {
+            $html .= $image;
+        } else {
+            $linkAttrs = $attrs['link'] + array('href' => $file->getWebPath('original'));
+            $html .= '<a ' . tag_attributes($linkAttrs) . '>' . $image . '</a>';
+        }
+
+        $html .= '</li>';
+        $count++;
+    }
+    return $html;
+}
