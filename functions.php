@@ -199,24 +199,26 @@ function sckls_item_image_gallery($attrs = array(), $imageType = 'square_thumbna
     foreach ($files as $file) {
         $mime = $file->mime_type;
 
+        // Is it the first item? If so, give it a special class name
         if ($count == 1){
             $class = 'image-large';
+            $image = file_image($imageType, array('size' => 'fullsize'), $file);
         } else {
             $class = 'image-small';
-        }
-        if (strstr($mime, 'image') == true) {
-            $html .= '<li data-src="' . $file->getWebPath('original') . '" class="' . $class . '">';
-        } else {
-            $html .= '<li class="' . $class . '">';
+            $image = file_image($imageType, $attrs['image'], $file);
         }
 
-        $image = file_image($imageType, $attrs['image'], $file);
+        // Setup list items with appropriate classes
         if (strstr($mime, 'image') == true) {
-            $html .= $image;
+            $html .= '<li data-src="' . $file->getWebPath('original') . '" class="' . $class . '">';
+        } elseif (strstr($mime, 'video') == true) {
+            $html .= '<li data-iframe="true" data-src="' . $file->getWebPath('original') . '?video" class="' . $class . '">';
         } else {
-            $linkAttrs = $attrs['link'] + array('href' => $file->getWebPath('original'));
-            $html .= '<a ' . tag_attributes($linkAttrs) . '>' . $image . '</a>';
+            $html .= '<li data-iframe="true" data-src="' . $file->getWebPath('original') . '" class="' . $class . '">';
         }
+
+        // Get the files/images
+        $html .= $image;
 
         $html .= '</li>';
         $count++;
