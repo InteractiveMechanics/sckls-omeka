@@ -16,6 +16,16 @@
             </div>
             <div class="col-sm-7">
                 <?php echo all_element_texts('item', array(false, false)); ?>
+                <?php $images = $item->Files; ?>
+                <?php if ($images): ?>
+                    <h6>Files</h6>
+                    <ul>
+                        <?php foreach ($images as $image): ?>
+                            <li><?php echo link_to_file_show(array(), '',$image); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <hr>
+                <?php endif; ?>
                 <h6>Citation</h6>
                 <?php echo metadata('item', 'citation', array('no_escape' => true)); ?>
             </div>
