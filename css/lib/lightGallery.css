@@ -352,6 +352,7 @@
 	padding: 12px;
 	max-height: 290px;
 	overflow-y: auto;
+    width: 100%!important;
 }
 #lightGallery-Gallery .thumb_cont .thumb_info {
 	background-color: #333;
