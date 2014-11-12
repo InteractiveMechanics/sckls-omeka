@@ -63,8 +63,7 @@ $formAttributes['method'] = 'GET';
     <br>
     <?php if(is_allowed('Users', 'browse')): ?>
     <div class="field">
-    <?php
-        echo $this->formLabel('user-search', __('Search By User'));?>
+        <h6><?php echo $this->formLabel('user-search', __('Search By User'));?></h6>
         <div class="inputs">
         <?php
             echo $this->formSelect(

@@ -6,7 +6,7 @@ function sckls_exhibit_builder_display_random_featured_exhibit() {
     $html = '';
     $featuredExhibit = exhibit_builder_random_featured_exhibit();
     if ($featuredExhibit) {
-        $image = sckls_exhibit_builder_get_first_image($featuredExhibit);
+        $image = sckls_exhibit_builder_get_first_image_object($featuredExhibit);
     } else {
         $image = '';
     }
@@ -52,7 +52,7 @@ function sckls_random_featured_collection() {
         if (has_loop_records('items')){
             $image = $items[0]->Files;
             if ($image) {
-                $html .= '<div style="background-image: url(' . file_display_url($image, 'fullsize') . ');" class="img"></div>';
+                $html .= '<div style="background-image: url(' . file_display_url($image[0], 'fullsize') . ');" class="img"></div>';
             } else {
                 $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
             }
@@ -80,7 +80,7 @@ function sckls_random_featured_item() {
             $html .= '    <div class="overlay"></div>';
             $image = $item->Files;
             if ($image) {
-                $html .= '<div style="background-image: url(' . file_display_url($image, 'fullsize') . ');" class="img"></div>';
+                $html .= '<div style="background-image: url(' . file_display_url($image[0], 'fullsize') . ');" class="img"></div>';
             } else {
                 $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
             }
@@ -93,7 +93,28 @@ function sckls_random_featured_item() {
     return $html;
 }
 
-function sckls_exhibit_builder_get_first_image($exhibit) {
+function sckls_exhibit_builder_get_first_image_object($exhibit) {
+	$file = '';
+    $count = 0;
+
+	if (!$exhibit) {
+        $exhibit = get_current_record('exhibit');
+    }
+    set_loop_records('exhibit_page', $exhibit->TopPages);
+    
+    foreach (loop('exhibit_page') as $exhibitPage) {
+        $attachments = $exhibitPage->getAllAttachments();
+        foreach ($attachments as $attachment):
+            if ($file === ''){
+                $item = $attachment->getItem();
+                $file = $attachment->getFile();
+            }
+        endforeach;
+    }
+    return $file;
+}
+
+function sckls_exhibit_builder_get_first_image_html($exhibit) {
 	$html = '';
     $count = 0;
 
