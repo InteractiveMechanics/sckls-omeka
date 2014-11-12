@@ -23,7 +23,7 @@
                             echo '  <a href="' . record_url($item, null, true) . '">';
                             echo '    <div class="overlay"></div>';
                             if ($image) {
-                                echo '<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>';
+                                echo '<div style="background-image: url(' . file_display_url($image[0], 'fullsize') . ');" class="img"></div>';
                             } else {
                                 echo '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
                             }

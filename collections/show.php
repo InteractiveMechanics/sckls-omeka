@@ -41,7 +41,7 @@ if ($collectionTitle == '') {
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
-                                echo link_to_item('<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>');
+                                echo link_to_item('<div style="background-image: url(' . file_display_url($image[0], 'fullsize') . ');" class="img"></div>');
                             } else {
                                 echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img"></div>');
                             }

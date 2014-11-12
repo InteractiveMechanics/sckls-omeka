@@ -17,7 +17,7 @@ function sckls_exhibit_builder_display_random_featured_exhibit() {
         $html .= '    <div class="overlay"></div>';
         $html .= '    <span class="title">' . $featuredExhibit->title . '</span>';
         if ($image) {
-            $html .= '<div style="background-image: url(' . $image . ');" class="img"></div>';
+            $html .= '<div style="background-image: url(' . file_display_url($image, 'fullsize') . ');" class="img"></div>';
         } else {
             $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
         }
@@ -52,7 +52,7 @@ function sckls_random_featured_collection() {
         if (has_loop_records('items')){
             $image = $items[0]->Files;
             if ($image) {
-                $html .= '<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>';
+                $html .= '<div style="background-image: url(' . file_display_url($image, 'fullsize') . ');" class="img"></div>';
             } else {
                 $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
             }
@@ -80,7 +80,7 @@ function sckls_random_featured_item() {
             $html .= '    <div class="overlay"></div>';
             $image = $item->Files;
             if ($image) {
-                $html .= '<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>';
+                $html .= '<div style="background-image: url(' . file_display_url($image, 'fullsize') . ');" class="img"></div>';
             } else {
                 $html .= '<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img default"></div>';
             }
@@ -109,7 +109,7 @@ function sckls_exhibit_builder_get_first_image($exhibit) {
                 $item = $attachment->getItem();
                 $file = $attachment->getFile();
     
-                $html .= file_display_url($file, 'original');
+                $html .= file_display_url($file, 'fullsize');
             }
             $count++;
         endforeach;
@@ -135,7 +135,7 @@ function sckls_exhibit_builder_get_images($exhibit) {
             //$html .= '    <a href="' . record_url($item, null, true) . '" class="featured">';
             $html .= '    <a>';
             //$html .= '        <div class="overlay"></div>';
-            $html .= '        <div style="background-image: url(' . file_display_url($file, 'original') . ');" class="img"></div>';
+            $html .= '        <div style="background-image: url(' . file_display_url($file, 'fullsize') . ');" class="img"></div>';
             //$html .= '        <span class="title">' . metadata($item, array('Dublin Core', 'Title')) . '</span>';
             $html .= '    </a>';
             $html .= '</div>';
