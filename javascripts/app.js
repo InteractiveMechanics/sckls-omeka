@@ -51,7 +51,8 @@ $(document).ready(function(){
     });
 
     $("#image-gallery").lightGallery({
-        mode:"fade"
+        mode:"fade",
+        lang: { allPhotos: 'All files' }
     });
 
     $('.link-to-exhibit').each(function() {
