@@ -244,7 +244,7 @@
 	cursor: grab;
 	cursor: -webkit-grab;
 	margin: 0;
-	padding: 0;
+	padding: 0 50px;
 	width: auto;
 	height: auto;
 	vertical-align: middle;
@@ -443,6 +443,7 @@
 #lightGallery-slider .video_cont {
 	display: inline-block;
 	max-height: 100%;
+    height: 75% !important;
 	max-width: 100%;
 	margin: 0;
 	padding: 0;
@@ -454,6 +455,7 @@
 	background: none;
 	max-width: 1140px;
 	max-height: 100%;
+    height: 75% !important;
 	width: 100%;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -461,7 +463,7 @@
 }
 #lightGallery-slider .video {
 	width: 100%;
-	height: 0;
+	height: 100%;
 	padding-bottom: 56.25%;
 	overflow: hidden;
 	position: relative;

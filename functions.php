@@ -234,6 +234,8 @@ function sckls_item_image_gallery($attrs = array(), $imageType = 'square_thumbna
             $html .= '<li data-src="' . $file->getWebPath('original') . '" class="' . $class . '">';
         } elseif (strstr($mime, 'video') == true) {
             $html .= '<li data-iframe="true" data-src="' . $file->getWebPath('original') . '?video" class="' . $class . '">';
+        } elseif (strstr($mime, 'pdf') == true) {
+            $html .= '<li data-iframe="true" data-src="' . $file->getWebPath('original') . '?pdf" class="' . $class . '">';
         } else {
             $html .= '<li data-iframe="true" data-src="' . $file->getWebPath('original') . '" class="' . $class . '">';
         }
