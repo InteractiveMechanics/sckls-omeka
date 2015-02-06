@@ -30,12 +30,17 @@
                 <?php echo metadata('item', 'citation', array('no_escape' => true)); ?>
             </div>
         </div>
+        <?php 
+            $url = current_url();
+            $pos = strpos($url, 'exhibits');
+            if (!$pos): ?>
         <nav>
             <ul class="pager">
                 <li id="previous-item" class="previous"><?php echo link_to_previous_item_show('&larr; Previous'); ?></li>
                 <li id="next-item" class="next"><?php echo link_to_next_item_show('Next &rarr;'); ?></li>
             </ul>
         </nav>
+        <?php else: echo '<br/>'; endif; ?>
     </div>
 </div>
 
