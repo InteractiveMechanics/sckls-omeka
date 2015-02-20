@@ -64,6 +64,7 @@ if ($collectionTitle == '') {
                 </div>
             </div>
             <?php endforeach; ?>
+            <?php echo pagination_links(); ?>
         </div>
         <?php else: ?>
             <div class="alert alert-warning">There are currently no items within this collection.</div>

@@ -63,10 +63,9 @@
                 <p class="text-muted"><?php echo 'No items found.'; ?></p>
             <?php endif; ?>
         </div>
-        <?php echo pagination_links(); ?>        
+        <?php echo pagination_links(); ?>      
         <?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
     </div>
-    <?php echo pagination_links(); ?>
 </div>
 
 <?php echo foot(); ?>

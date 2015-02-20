@@ -65,6 +65,22 @@ body {
       .content .content-block {
         padding: 16px 20px; } }
 
+.pagination-nav {
+  text-align: center; }
+  .pagination-nav .pagination > li {
+    display: inline-block;
+    vertical-align: middle; }
+  .pagination-nav .page-input {
+    padding: 0 10px; }
+  .pagination-nav input {
+    max-width: 60px;
+    padding: 5px 8px;
+    margin-right: 5px;
+    text-align: center;
+    font-weight: bold; }
+  .pagination-nav a {
+    border-radius: 4px; }
+
 #lightGallery-outer {
   background: #0d0d0d !important;
   background: rgba(13, 13, 13, 0.9) !important; }

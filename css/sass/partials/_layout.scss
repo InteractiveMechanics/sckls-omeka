@@ -38,6 +38,30 @@ body {
     }
 }
 
+.pagination-nav {
+    text-align: center;
+
+    .pagination {
+        > li {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .page-input {
+        padding: 0 10px;
+    }
+    input {
+        max-width: 60px;
+        padding: 5px 8px;
+        margin-right: 5px;
+        text-align: center;
+        font-weight: bold;
+    }
+    a {
+        border-radius: 4px;
+    }
+}
+
 #lightGallery-outer {
     background: #0d0d0d !important;
     background: rgba(#0d0d0d, 0.9) !important;    
